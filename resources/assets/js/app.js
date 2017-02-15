@@ -9,7 +9,7 @@ require('./bootstrap');
 require('./ie10-viewport-bug-workaround');
 require('./offcanvas');
 // require('./Gmap');
-require('./docready');
+require('./diner');
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
