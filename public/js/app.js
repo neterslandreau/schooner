@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "./";
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 37);
+/******/ 	return __webpack_require__(__webpack_require__.s = 38);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -11190,8 +11190,10 @@ module.exports = g;
  */
 
 __webpack_require__(30);
-__webpack_require__(31);
 __webpack_require__(32);
+__webpack_require__(33);
+// require('./Gmap');
+__webpack_require__(31);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -12058,7 +12060,7 @@ module.exports = function spread(callback) {
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(__webpack_provided_window_dot_jQuery) {
-window._ = __webpack_require__(34);
+window._ = __webpack_require__(35);
 
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
@@ -12068,7 +12070,7 @@ window._ = __webpack_require__(34);
 
 window.$ = __webpack_provided_window_dot_jQuery = __webpack_require__(1);
 
-__webpack_require__(33);
+__webpack_require__(34);
 
 /**
  * Vue is a modern JavaScript library for building interactive web interfaces
@@ -12076,7 +12078,7 @@ __webpack_require__(33);
  * and simple, leaving you to focus on building your next great project.
  */
 
-window.Vue = __webpack_require__(35);
+window.Vue = __webpack_require__(36);
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
@@ -12107,6 +12109,68 @@ window.axios.defaults.headers.common = {
 
 /***/ }),
 /* 31 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function($) {$(document).ready(function () {
+	Gmap.populateMap('2931 Griffin Rd Fort Lauderdale, FL 33312', 'David\'s Diner');
+});
+/**
+ * Gmap application wide namespace
+ */
+var Gmap = {};
+
+Gmap.populateMap = function (addr, title, canvas) {
+	var displayElement;
+	if (typeof canvas != 'undefined') {
+		displayElement = canvas;
+	} else {
+		displayElement = 'map_canvas';
+	}
+	var Geocoder = new google.maps.Geocoder();
+	Geocoder.geocode({ address: addr }, function (gcresults) {
+		var mapProperties = {
+			center: gcresults[0].geometry.location,
+			zoom: 12,
+			mapTypeId: google.maps.MapTypeId.ROADMAP
+		};
+		var marker = new google.maps.Marker({
+			position: gcresults[0].geometry.location,
+			title: title
+		});
+		var map = new google.maps.Map(document.getElementById(displayElement), mapProperties);
+		marker.setMap(map);
+	});
+};
+Gmap.getLocation = function () {
+	if (navigator.geolocation) {
+		browserSupportFlag = true;
+		navigator.geolocation.getCurrentPosition(function (position, error) {
+			initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+			var Geocoder = new google.maps.Geocoder();
+			Geocoder.geocode({ latLng: initialLocation }, function (gcresults) {
+				var city_name = gcresults[0].address_components[2].long_name;
+				var state_abbr = gcresults[0].address_components[4].short_name;
+				$('#textPosition').html(city_name + ', ' + state_abbr);
+				$('#browserLocation').html(city_name + ', ' + state_abbr);
+				var pdata = {
+					browserLocation: city_name + ', ' + state_abbr
+				};
+				var Url = 'sessions/session_handler.php';
+				$('#confirmLocation').live('click', function () {
+					$.post(Url, pdata, function (results, data) {
+						//						console.log(results);
+					});
+				});
+			});
+		});
+	} else {
+		console.log('need other way to get location');
+	}
+};
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+
+/***/ }),
+/* 32 */
 /***/ (function(module, exports) {
 
 /*!
@@ -12129,7 +12193,7 @@ window.axios.defaults.headers.common = {
 })();
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function($) {$(document).ready(function () {
@@ -12142,7 +12206,7 @@ window.axios.defaults.headers.common = {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(jQuery) {/*!
@@ -14526,7 +14590,7 @@ if (typeof jQuery === 'undefined') {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 34 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, module) {var __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -31615,10 +31679,10 @@ if (typeof jQuery === 'undefined') {
   }
 }.call(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(9), __webpack_require__(36)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(9), __webpack_require__(37)(module)))
 
 /***/ }),
-/* 35 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -40194,7 +40258,7 @@ module.exports = Vue$3;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3), __webpack_require__(9)))
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -40222,7 +40286,7 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(10);
