@@ -16,10 +16,6 @@
             'csrfToken' => csrf_token(),
         ]) !!};
     </script>
-    <script src='http://maps.google.com/maps/api/js?key=AIzaSyA4ElrMPUX1d9KEt-fIEwsDICCdNitjw3o'></script>
-
-    <script src="/js/app.js"></script>
-
 
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -39,5 +35,7 @@
 
     </div>
 
+    <script src='http://maps.google.com/maps/api/js?key=AIzaSyA4ElrMPUX1d9KEt-fIEwsDICCdNitjw3o'></script>
+    <script src="/js/app.js"></script>
   </body>
 </html>
