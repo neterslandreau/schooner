@@ -1,6 +1,4 @@
-<?php
-
-namespace App\Providers;
+<?php namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -13,7 +11,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        view()->composer('home', function($view) {
+            $items = \App\Item::get();
+            $types = \App\Type::get();
+            $view->with(compact('items', 'types'));
+        });
     }
 
     /**

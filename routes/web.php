@@ -17,5 +17,15 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('items/{slug}/edit', 'ItemsController@edit');
+Route::get('items/create', 'ItemsController@create');
+Route::post('/items/{slug}/edit', 'ItemsController@edit');
+Route::post('items', 'ItemsController@store');
+Route::get('items/{slug}/delete', 'ItemsController@destroy');
 
+Route::get('types/{slug}/edit', 'TypesController@edit');
+Route::get('types/create', 'TypesController@create');
+Route::post('/types/{slug}/edit', 'TypesController@edit');
+Route::post('types', 'TypesController@store');
+Route::get('types/{slug}/delete', 'TypesController@destroy');

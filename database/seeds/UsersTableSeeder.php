@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Webpatser\Uuid\Uuid;
 
 class UsersTableSeeder extends Seeder
 {
@@ -12,12 +13,15 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         DB::table('users') ->insert([
-        	'id' => '00000000-0000-0000-0000-000000000001',
+        	'id' => Uuid::generate()->string,
         	'first_name' => 'Admin',
         	'last_name' => 'Istrator',
         	'username' => 'administrator',
         	'email' => 'admin@think-knot.com',
+        	'role' => 'admin',
         	'password' => bcrypt('secret'),
+        	'created_at' => date('Y-m-d H:i:s'),
+        	'updated_at' => date('Y-m-d H:i:s'),
         ]);
     }
 }
