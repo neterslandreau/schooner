@@ -16,11 +16,9 @@
 
           <div class="row">
 
-          <?php for($x = 0; $x < 3; $x++) : ?>
-
+          @foreach ($featuredItems as $item)
             @include('partials.featured-dish')
-
-          <?php endfor; ?>
+          @endforeach
  
           </div>
 

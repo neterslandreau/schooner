@@ -1,5 +1,5 @@
 $( document ).ready(function() {
-    if (!window.location.pathname.match(/home/)) {
+    if (!window.location.pathname.match(/home|items|types/)) {
 		Gmap.populateMap('2931 Griffin Rd Fort Lauderdale, FL 33312', 'David\'s Diner');
 	}
 });

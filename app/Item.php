@@ -13,4 +13,15 @@ class Item extends Model
     	return $this->belongsTo(Type::class);
     }
 
+    public static function featuredItems()
+    {
+    	return static::where('featured', true)->get();
+    }
+
+    public static function getItems(string $slug)
+    {
+    	$type = Type::where('slug', $slug)->first();
+    	return static::where('type_id', $type->id)->get();
+    }
+
 }
