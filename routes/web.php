@@ -23,6 +23,8 @@ Route::get('/contact', function () {
 	return view('contact');
 });
 
+Route::post('items/addtocart', 'ItemsController@addToCart');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

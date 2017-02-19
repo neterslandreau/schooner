@@ -176,8 +176,13 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        Cviebrock\EloquentSluggable\ServiceProvider::class,
 
+        /*
+         * Third-party Providers
+         */
+        Cviebrock\EloquentSluggable\ServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
+        Overtrue\LaravelShoppingCart\ServiceProvider::class,
 
     ],
 
@@ -228,6 +233,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Uuid' => Webpatser\Uuid\Uuid::class,
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
+        'Cart' => Overtrue\LaravelShoppingCart\Facade::class,
 
     ],
 

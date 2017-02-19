@@ -12115,6 +12115,20 @@ window.axios.defaults.headers.common = {
 	if (!window.location.pathname.match(/home|items|types/)) {
 		Gmap.populateMap('2931 Griffin Rd Fort Lauderdale, FL 33312', 'David\'s Diner');
 	}
+	$('[id^="slug_"]').on('click', function () {
+		var slug = this.id.split('_')[1];
+		var quantity = $('#' + slug + '_quantity').find(":selected").text();
+
+		var url = 'items/addtocart';
+		var data = {
+			slug: slug,
+			quantity: quantity
+		};
+
+		// $.post(url, data, function (response, status) {
+		// 	console.log(response);
+		// });
+	});
 });
 /**
  * Gmap application wide namespace
@@ -12132,7 +12146,7 @@ Gmap.populateMap = function (addr, title, canvas) {
 	Geocoder.geocode({ address: addr }, function (gcresults) {
 		var mapProperties = {
 			center: gcresults[0].geometry.location,
-			zoom: 12,
+			zoom: 15,
 			mapTypeId: google.maps.MapTypeId.ROADMAP
 		};
 		var marker = new google.maps.Marker({

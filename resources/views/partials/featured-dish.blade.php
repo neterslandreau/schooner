@@ -7,7 +7,8 @@
 	</p>
 
 	<p>
-		<a class="btn btn-default" href="#" role="button">Order now for just ${{ $item->price }} &raquo;</a>
+		<a class="btn btn-default" role="button" data-toggle="modal" data-target="#{{ $item->slug }}">Order now for just ${{ $item->price }} &raquo;</a>
 	</p>
 
 </div>
+@include('partials.modal')
