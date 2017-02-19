@@ -33,7 +33,7 @@ Gmap.populateMap = function(addr, title, canvas) {
 	Geocoder.geocode({address: addr}, function(gcresults) {
 		var mapProperties = {
 			center: gcresults[0].geometry.location,
-			zoom: 15,
+			zoom: 13,
 			mapTypeId: google.maps.MapTypeId.ROADMAP
 		};
 		var marker = new google.maps.Marker({
