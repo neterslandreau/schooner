@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "./";
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 38);
+/******/ 	return __webpack_require__(__webpack_require__.s = 39);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -11191,8 +11191,9 @@ module.exports = g;
 
 __webpack_require__(30);
 __webpack_require__(32);
-__webpack_require__(33);
+__webpack_require__(34);
 // require('./Gmap');
+__webpack_require__(33);
 __webpack_require__(31);
 
 /**
@@ -12060,7 +12061,7 @@ module.exports = function spread(callback) {
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(__webpack_provided_window_dot_jQuery) {
-window._ = __webpack_require__(35);
+window._ = __webpack_require__(36);
 
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
@@ -12070,7 +12071,7 @@ window._ = __webpack_require__(35);
 
 window.$ = __webpack_provided_window_dot_jQuery = __webpack_require__(1);
 
-__webpack_require__(34);
+__webpack_require__(35);
 
 /**
  * Vue is a modern JavaScript library for building interactive web interfaces
@@ -12078,7 +12079,7 @@ __webpack_require__(34);
  * and simple, leaving you to focus on building your next great project.
  */
 
-window.Vue = __webpack_require__(36);
+window.Vue = __webpack_require__(37);
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
@@ -12119,15 +12120,28 @@ window.axios.defaults.headers.common = {
 		var slug = this.id.split('_')[1];
 		var quantity = $('#' + slug + '_quantity').find(":selected").text();
 
-		var url = 'items/addtocart';
+		console.log(this.id);
+
+		// var url = '/items/addtocart/'+slug+'/'+quantity;
+		// $.get(url, function(data) {
+		// 	console.log(data);
+		// });
+		var url = 'cart';
 		var data = {
 			slug: slug,
-			quantity: quantity
+			quantity: quantity,
+			_token: Laravel.csrfToken
 		};
 
-		// $.post(url, data, function (response, status) {
-		// 	console.log(response);
-		// });
+		$.ajaxSetup({
+			headers: {
+				'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+			}
+		});
+
+		$.post(url, data, function (response, status) {
+			location.reload();
+		});
 	});
 });
 /**
@@ -12212,6 +12226,127 @@ Gmap.getLocation = function () {
 /* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
+/* WEBPACK VAR INJECTION */(function(jQuery) {var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+(function (c) {
+  var b = function () {
+    var g = {};var f = { currencySymbol: "$", classCartIcon: "my-cart-icon", classCartBadge: "my-cart-badge", classProductQuantity: "my-product-quantity", classProductRemove: "my-product-remove", classCheckoutCart: "my-cart-checkout", affixCartIcon: true, showCheckoutModal: true, cartItems: [], clickOnAddToCart: function clickOnAddToCart(i) {}, clickOnCartIcon: function clickOnCartIcon(j, k, i, l) {}, checkoutCart: function checkoutCart(j, i, k) {}, getDiscountPrice: function getDiscountPrice(j, i, k) {
+        return null;
+      } };var h = function h(i) {
+      var j = c.extend({}, f);if ((typeof i === "undefined" ? "undefined" : _typeof(i)) === "object") {
+        c.extend(j, i);
+      }return j;
+    };g.getOptions = h;return g;
+  }();var e = function () {
+    var i = {};localStorage.products = localStorage.products ? localStorage.products : "";var o = function o(s) {
+      var q = -1;var r = f();c.each(r, function (t, u) {
+        if (u.id == s) {
+          q = t;return;
+        }
+      });return q;
+    };var n = function n(q) {
+      localStorage.products = JSON.stringify(q);
+    };var k = function k(w, r, q, s, v, u) {
+      var t = f();t.push({ id: w, name: r, summary: q, price: s, quantity: v, image: u });n(t);
+    };var f = function f() {
+      try {
+        var r = JSON.parse(localStorage.products);return r;
+      } catch (q) {
+        return [];
+      }
+    };var p = function p(t, s) {
+      var q = o(t);if (q < 0) {
+        return false;
+      }var r = f();r[q].quantity = typeof s === "undefined" ? r[q].quantity * 1 + 1 : s;n(r);return true;
+    };var l = function l(v, r, q, s, u, t) {
+      if (typeof v === "undefined") {
+        console.error("id required");return false;
+      }if (typeof r === "undefined") {
+        console.error("name required");return false;
+      }if (typeof t === "undefined") {
+        console.error("image required");return false;
+      }if (!c.isNumeric(s)) {
+        console.error("price is not a number");return false;
+      }if (!c.isNumeric(u)) {
+        console.error("quantity is not a number");return false;
+      }q = typeof q === "undefined" ? "" : q;if (!p(v)) {
+        k(v, r, q, s, u, t);
+      }
+    };var m = function m() {
+      n([]);
+    };var j = function j(r) {
+      var q = f();q = c.grep(q, function (t, s) {
+        return t.id != r;
+      });n(q);
+    };var h = function h() {
+      var q = 0;var r = f();c.each(r, function (s, t) {
+        q += t.quantity * 1;
+      });return q;
+    };var g = function g() {
+      var r = f();var q = 0;c.each(r, function (s, t) {
+        q += t.quantity * t.price;
+      });return q;
+    };i.getAllProducts = f;i.updatePoduct = p;i.setProduct = l;i.clearProduct = m;i.removeProduct = j;i.getTotalQuantity = h;i.getTotalPrice = g;return i;
+  }();var a = function a(j) {
+    var i = b.getOptions(j);var r = c("." + i.classCartIcon);var p = c("." + i.classCartBadge);var v = i.classProductQuantity;var h = i.classProductRemove;var q = i.classCheckoutCart;var t = "my-cart-modal";var u = "my-cart-table";var f = "my-cart-grand-total";var x = "my-cart-empty-message";var w = "my-cart-discount-price";var g = "my-product-total";var o = "my-cart-icon-affix";if (i.cartItems && i.cartItems.constructor === Array) {
+      e.clearProduct();c.each(i.cartItems, function () {
+        e.setProduct(this.id, this.name, this.summary, this.price, this.quantity, this.image);
+      });
+    }p.text(e.getTotalQuantity());if (!c("#" + t).length) {
+      c("body").append('<div class="modal fade" id="' + t + '" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title" id="myModalLabel"><span class="glyphicon glyphicon-shopping-cart"></span> My Cart</h4></div><div class="modal-body"><table class="table table-hover table-responsive" id="' + u + '"></table></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button><button type="button" class="btn btn-primary ' + q + '">Checkout</button></div></div></div></div>');
+    }var z = function z() {
+      var A = c("#" + u);A.empty();var C = e.getAllProducts();c.each(C, function () {
+        var D = this.quantity * this.price;A.append('<tr title="' + this.summary + '" data-id="' + this.id + '" data-price="' + this.price + '"><td class="text-center" style="width: 30px;"><img width="30px" height="30px" src="' + this.image + '"/></td><td>' + this.name + '</td><td title="Unit Price">' + i.currencySymbol + this.price + '</td><td title="Quantity"><input type="number" min="1" style="width: 70px;" class="' + v + '" value="' + this.quantity + '"/></td><td title="Total" class="' + g + '">' + i.currencySymbol + D + '</td><td title="Remove from Cart" class="text-center" style="width: 30px;"><a href="javascript:void(0);" class="btn btn-xs btn-danger ' + h + '">X</a></td></tr>');
+      });A.append(C.length ? '<tr><td></td><td><strong>Total</strong></td><td></td><td></td><td><strong id="' + f + '"></strong></td><td></td></tr>' : '<div class="alert alert-danger" role="alert" id="' + x + '">Your cart is empty</div>');var B = i.getDiscountPrice(C, e.getTotalPrice(), e.getTotalQuantity());if (C.length && B !== null) {
+        A.append('<tr style="color: red"><td></td><td><strong>Total (including discount)</strong></td><td></td><td></td><td><strong id="' + w + '"></strong></td><td></td></tr>');
+      }s();n();
+    };var l = function l() {
+      z();c("#" + t).modal("show");
+    };var y = function y() {
+      c.each(c("." + v), function () {
+        var A = c(this).closest("tr").data("id");e.updatePoduct(A, c(this).val());
+      });
+    };var s = function s() {
+      c("#" + f).text(i.currencySymbol + e.getTotalPrice());
+    };var n = function n() {
+      c("#" + w).text(i.currencySymbol + i.getDiscountPrice(e.getAllProducts(), e.getTotalPrice(), e.getTotalQuantity()));
+    };if (i.affixCartIcon) {
+      var k = r.offset().top * 1 + r.css("height").match(/\d+/) * 1;var m = r.css("position");c(window).scroll(function () {
+        c(window).scrollTop() >= k ? r.addClass(o) : r.removeClass(o);
+      });
+    }r.click(function () {
+      i.showCheckoutModal ? l() : i.clickOnCartIcon(r, e.getAllProducts(), e.getTotalPrice(), e.getTotalQuantity());
+    });c(document).on("input", "." + v, function () {
+      var A = c(this).closest("tr").data("price");var C = c(this).closest("tr").data("id");var B = c(this).val();c(this).parent("td").next("." + g).text("$" + A * B);e.updatePoduct(C, B);p.text(e.getTotalQuantity());s();n();
+    });c(document).on("keypress", "." + v, function (A) {
+      if (A.keyCode == 38 || A.keyCode == 40) {
+        return;
+      }A.preventDefault();
+    });c(document).on("click", "." + h, function () {
+      var A = c(this).closest("tr");var B = A.data("id");A.hide(500, function () {
+        e.removeProduct(B);z();p.text(e.getTotalQuantity());
+      });
+    });c("." + q).click(function () {
+      var A = e.getAllProducts();if (!A.length) {
+        c("#" + x).fadeTo("fast", 0.5).fadeTo("fast", 1);return;
+      }y();i.checkoutCart(e.getAllProducts(), e.getTotalPrice(), e.getTotalQuantity());e.clearProduct();p.text(e.getTotalQuantity());c("#" + t).modal("hide");
+    });
+  };var d = function d(j, k) {
+    var f = c(j);var g = b.getOptions(k);var h = c("." + g.classCartIcon);var i = c("." + g.classCartBadge);f.click(function () {
+      g.clickOnAddToCart(f);var q = f.data("id");var m = f.data("name");var l = f.data("summary");var n = f.data("price");var p = f.data("quantity");var o = f.data("image");e.setProduct(q, m, l, n, p, o);i.text(e.getTotalQuantity());
+    });
+  };c.fn.myCart = function (f) {
+    a(f);return c.each(this, function () {
+      new d(this, f);
+    });
+  };
+})(jQuery);
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+
+/***/ }),
+/* 34 */
+/***/ (function(module, exports, __webpack_require__) {
+
 /* WEBPACK VAR INJECTION */(function($) {$(document).ready(function () {
 
 	$('[data-toggle="offcanvas"]').click(function () {
@@ -12222,7 +12357,7 @@ Gmap.getLocation = function () {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 34 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(jQuery) {/*!
@@ -14606,7 +14741,7 @@ if (typeof jQuery === 'undefined') {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 35 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, module) {var __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -31695,10 +31830,10 @@ if (typeof jQuery === 'undefined') {
   }
 }.call(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(9), __webpack_require__(37)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(9), __webpack_require__(38)(module)))
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -40274,7 +40409,7 @@ module.exports = Vue$3;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3), __webpack_require__(9)))
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -40302,7 +40437,7 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(10);

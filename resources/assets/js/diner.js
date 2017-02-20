@@ -2,20 +2,34 @@ $( document ).ready(function() {
     if (!window.location.pathname.match(/home|items|types/)) {
 		Gmap.populateMap('2931 Griffin Rd Fort Lauderdale, FL 33312', 'David\'s Diner');
 	}
-	    $('[id^="slug_"]').on('click', function() {
-	    	var slug = this.id.split('_')[1];
-	    	var quantity = $('#'+slug+'_quantity').find(":selected").text();
+    $('[id^="slug_"]').on('click', function() {
+    	var slug = this.id.split('_')[1];
+    	var quantity = $('#'+slug+'_quantity').find(":selected").text();
 
-	    	var url = 'items/addtocart';
-	    	var data = {
-	    		slug: slug,
-	    		quantity: quantity
-	    	};
+    	console.log(this.id);
 
-	    	// $.post(url, data, function (response, status) {
-	    	// 	console.log(response);
-	    	// });
-	    });
+    	// var url = '/items/addtocart/'+slug+'/'+quantity;
+    	// $.get(url, function(data) {
+    	// 	console.log(data);
+    	// });
+    	var url = 'cart';
+    	var data = {
+    		slug: slug,
+    		quantity: quantity,
+    		_token: Laravel.csrfToken
+    	};
+
+		$.ajaxSetup({
+		   headers: {
+		       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		   }
+		});
+
+    	$.post(url, data, function (response, status) {
+    		location.reload();
+    	});
+
+    });
 });
 /**
  * Gmap application wide namespace

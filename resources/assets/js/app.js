@@ -9,6 +9,7 @@ require('./bootstrap');
 require('./ie10-viewport-bug-workaround');
 require('./offcanvas');
 // require('./Gmap');
+require('./jquery.mycart.min');
 require('./diner');
 
 /**

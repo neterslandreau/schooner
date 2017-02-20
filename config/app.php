@@ -181,7 +181,7 @@ return [
          * Third-party Providers
          */
         Cviebrock\EloquentSluggable\ServiceProvider::class,
-        Barryvdh\Debugbar\ServiceProvider::class,
+        // Barryvdh\Debugbar\ServiceProvider::class,
         Overtrue\LaravelShoppingCart\ServiceProvider::class,
 
     ],
@@ -233,7 +233,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Uuid' => Webpatser\Uuid\Uuid::class,
-        'Debugbar' => Barryvdh\Debugbar\Facade::class,
+        // 'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'Cart' => Overtrue\LaravelShoppingCart\Facade::class,
 
     ],

@@ -10,6 +10,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
 
       </button>
 
@@ -20,72 +21,18 @@
     <div id="navbar" class="collapse navbar-collapse">
 
       <ul class="nav navbar-nav">
-        <li class="active"><a href="/">Home</a></li>
-        <li><a data-toggle="modal" data-target="#about">About</a></li>
-        <li><a data-toggle="modal" data-target="#contact">Contact</a></li>
+        <li class="active"><a title="Home" href="/"><span class="glyphicon glyphicon-home"></span></a></li>
+        <li><a title="About" data-toggle="modal" data-target="#about"><span class="glyphicon glyphicon-info-sign"></span></a></li>
+        <li><a title="Contact" data-toggle="modal" data-target="#contact"><span class="glyphicon glyphicon-phone"></span></a></li>
+        <li><a title="Shopping Cart" data-toggle="modal" data-target="#cart"><span class="glyphicon glyphicon-shopping-cart"><span class="badge badge-notify"></span></span></a></li>
       </ul>
 
     </div>
   </div>
 </nav>
-<div class="modal fade" id="about" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+@include('partials.about')
 
-    <div class="modal-dialog" role="document">
+@include('partials.cart')
 
-        <div class="modal-content">
+@include('partials.contact')
 
-            <div class="modal-header">
-
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="">About</h4>
-
-            </div>
-
-            <div class="modal-body">
-
-            Content pending.
-              
-            </div>
-
-            <div class="modal-footer">
-
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-
-<div class="modal fade" id="contact" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-
-    <div class="modal-dialog" role="document">
-
-        <div class="modal-content">
-
-            <div class="modal-header">
-
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="">Contact</h4>
-
-            </div>
-
-            <div class="modal-body">
-
-            Content pending.
-              
-            </div>
-
-            <div class="modal-footer">
-
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</div>

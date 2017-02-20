@@ -13,7 +13,7 @@
 
 Route::get('/', function () {
     return view('diner');
-});
+})->name('diner');
 
 Route::get('/about', function () {
 	return view('about');
@@ -23,7 +23,7 @@ Route::get('/contact', function () {
 	return view('contact');
 });
 
-Route::post('items/addtocart', 'ItemsController@addToCart');
+Route::post('cart', 'CartController@store');
 
 Auth::routes();
 

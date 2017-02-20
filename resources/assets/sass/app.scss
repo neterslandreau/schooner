@@ -65,4 +65,14 @@ footer {
     top: 0;
     width: 50%; /* 6 columns */
   }
+  .badge-notify{
+    background:red;
+    position:relative;
+    top: -20px;
+    right: 10px;
+  }
+  .my-cart-icon-affix {
+    position: fixed;
+    z-index: 999;
+  }
 }
