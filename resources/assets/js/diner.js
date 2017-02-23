@@ -1,4 +1,4 @@
-$( document ).ready(function() {
+$(function() {
     if (!window.location.pathname.match(/home|items|types/)) {
 		Gmap.populateMap('2931 Griffin Rd Fort Lauderdale, FL 33312', 'David\'s Diner');
 	}
@@ -6,12 +6,6 @@ $( document ).ready(function() {
     	var slug = this.id.split('_')[1];
     	var quantity = $('#'+slug+'_quantity').find(":selected").text();
 
-    	console.log(this.id);
-
-    	// var url = '/items/addtocart/'+slug+'/'+quantity;
-    	// $.get(url, function(data) {
-    	// 	console.log(data);
-    	// });
     	var url = 'cart';
     	var data = {
     		slug: slug,
@@ -26,11 +20,101 @@ $( document ).ready(function() {
 		});
 
     	$.post(url, data, function (response, status) {
-    		location.reload();
+    		console.log(response);
+			location.reload();
+    		// $('#cartTotal').html('$'+response['cartTotal']);
+    		// if (typeof $('#row_'+response['row'].__raw_id).html() == 'undefined') {
+    		// 	newRow = makeRow(response['row'], slug);
+    		// 	console.log(newRow);
+	    	// 	$('#cartBody').prepend(newRow);
+    		// }
     	});
+		// $('#cart').modal('show');
 
     });
+
+    $('[id^="qty_"]').on('change', function() {
+    	var slug = this.id.split('_')[1];
+    	var quantity = $('#qty_'+slug+' :selected').val();
+
+    	var url = 'cart/update';
+    	var data = {
+    		slug: slug,
+    		quantity: quantity,
+    		_token: Laravel.csrfToken
+    	};
+
+		$.ajaxSetup({
+		   headers: {
+		       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		   }
+		});
+
+    	$.post(url, data, function (response, status) {
+    		console.log(response);
+    		$('#cartTotal').html('$'+response)
+    	});
+    });
+
+    $('[id^="remove_"]').on('click', function() {
+    	var slug = this.id.split('_')[1];
+
+    	var url = 'cart/remove';
+    	var data = {
+    		slug: slug,
+    		_token: Laravel.csrfToken
+    	};
+
+		$.ajaxSetup({
+		   headers: {
+		       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		   }
+		});
+
+    	$.post(url, data, function (response, status) {
+    		console.log(response);
+    		$('#row_'+slug).html('');
+    		if (response < 1) {
+    			$('#checkoutButton').hide();
+    			$('#cartRow').html('<td colspan="4">Your cart is empty.</td>');
+
+    		} else {
+	    		$('#cartTotal').html('$'+response);
+    		}
+    	});
+    });
+
+
 });
+function makeRow(row, slug) {
+	var newRow;
+	var selected;
+	var url = 'cart';
+
+	newRow = '<tr id="row_'+row.__raw_id+'"><td><label>'+row.name+'</label></td><td><label for "qty">Qty</label><select id="qty_'+row.__raw_id+'">';
+	for (var x = 1; x <= 10; x++) {
+		if (x == row.qty) {
+			selected = 'selected';
+		} else {
+			selected = '';
+		}
+		newRow += '<option value="'+x+'" '+selected+'>'+x+'</option>';
+	}
+	newRow += '</select></td>';
+	newRow += '<td><button id="update_'+row.__raw_id+'" class="btn btn-default" title="Update Quantity" type="button" value="update"><span class="glyphicon glyphicon-save"></span></button></td>';
+	newRow += '<td><button id="remove_'+row.__raw_id+'" class="btn btn-default" title="Remove Item" type="button" value="remove"><span class="glyphicon glyphicon-remove"></span></button></td>';
+	newRow += '</tr>';
+	var data = {
+		slug: slug,
+		quantity: row.qty,
+		_token: Laravel.csrfToken
+	};
+	$.post(url, data, function (response, status) {
+		console.log('post newRow');
+	});
+	return newRow;
+
+}
 /**
  * Gmap application wide namespace
  */

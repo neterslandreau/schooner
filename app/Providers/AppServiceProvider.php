@@ -25,6 +25,7 @@ class AppServiceProvider extends ServiceProvider
             $drinks = \App\Item::getItems('drinks');
             $view->with(compact('featuredItems', 'smoothies', 'lunchItems', 'breakfastItems', 'drinks'));
         });
+
     }
 
     /**

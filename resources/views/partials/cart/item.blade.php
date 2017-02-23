@@ -1,16 +1,23 @@
-<table class="table table-hover table-responsive">
-<tbody>
-<tr title="{{ $item->name }}" data-id="{{ $item->id }}">
+<tr id="row_{{ $item->__raw_id }}">
 	<td>
-		{{ $item->name }}
+		<label>{{ $item->name }}</label>
 	</td>
 	<td>
-		{{ $item->qty }}
+	<label for "qty">Qty</label>
+        <select id="qty_{{ $item->__raw_id }}">
+        @for ($x = 1; $x <= 10; $x++)
+            <option value="{{ $x }}" @if ($item->qty == $x) selected @endif>{{ $x }}</option>
+        @endfor
+        </select>
 	</td>
-	<td>&nbsp;</td>
-	<td>&nbsp;</td>
-	<td>&nbsp;</td>
-	<td>&nbsp;</td>
+<!-- 	<td>
+		<button id="update_{{ $item->__raw_id }}" class="btn btn-default" title="Update Quantity" type="button" value="update">
+			<span class="glyphicon glyphicon-save"></span>
+		</button>
+	</td>
+ -->	<td>
+		<button id="remove_{{ $item->__raw_id }}" class="btn btn-default" title="Remove Item" type="button" value="remove">
+			<span class="glyphicon glyphicon-remove"></span>
+		</button>
+	</td>
 </tr>
-</tbody>
-</table>

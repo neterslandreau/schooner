@@ -1,4 +1,4 @@
-<div class="modal fade" id="cart" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="cart" tabindex="-1" role="dialog" aria-labelledby="cart">
 
     <div class="modal-dialog" role="document">
 
@@ -12,16 +12,17 @@
             </div>
 
             <div class="modal-body">
-            <?php $items = \Cart::all(); ?>
-            @foreach ($items as $item)
-                @include('partials.cart.item')
-            @endforeach
-            {{ \Cart::total() }}
+
+
+            @include('partials.cart.cart_body')
+
+
             </div>
 
             <div class="modal-footer">
 
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button id="checkoutButton" type="button" class="btn btn-primary" data-dismiss="modal">Checkout</button>
 
             </div>
 

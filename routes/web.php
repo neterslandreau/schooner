@@ -22,8 +22,10 @@ Route::get('/about', function () {
 Route::get('/contact', function () {
 	return view('contact');
 });
-
+Route::get('cart', 'CartController@index');
 Route::post('cart', 'CartController@store');
+Route::post('cart/update', 'CartController@update');
+Route::post('cart/remove', 'CartController@destroy');
 
 Auth::routes();
 
