@@ -14,7 +14,7 @@
             <div class="modal-body">
 
 
-            @include('partials.cart.cart_body')
+            @include('partials.cart.body')
 
 
             </div>
