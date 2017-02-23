@@ -42,7 +42,8 @@ class CartController extends Controller
                 // $rtn['cartTotal'] = \Cart::total();
                 // $html = '<tr><td>hello</td></tr>';
                 // return $rtn;
-                session()->flash('message', request('quantity') . ' ' . $item->name . ' was successfully added to your cart.');
+                $message = request('quantity') . ' ' . str_plural($item->name, request('quantity')) . ' was successfully added to your cart.';
+                session()->flash('message', $message);
                 return 'success';
             } else {
                 return 'failed';
