@@ -13,7 +13,7 @@
 
             <div class="modal-body">
 
-            Content pending.
+            @include('partials.info.contact')
               
             </div>
 

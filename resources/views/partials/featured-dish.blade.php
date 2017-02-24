@@ -1,4 +1,4 @@
-<div class="col-xs-6 col-lg-4">
+<div class="col-xs-8 col-lg-4 col-md-4">
 
 	<h2>{{ $item->name }}</h2>
 
