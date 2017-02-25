@@ -11,6 +11,7 @@
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0",
         "overtrue/laravel-shopping-cart": "1.0.*",
+        "simplesoftwareio/simple-sms": "^3.1",
         "webpatser/laravel-uuid": "^2.0"
     },
     "require-dev": {

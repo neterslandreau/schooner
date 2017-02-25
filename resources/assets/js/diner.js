@@ -134,9 +134,17 @@ Gmap.populateMap = function(addr, title, canvas) {
 			zoom: 13,
 			mapTypeId: google.maps.MapTypeId.ROADMAP
 		};
+		var contentString = '<div>'+'<div>'+'<h1><b>David\'s Diner</b></h1>'+'</div>'+'<div>'+'<p>This is David\'s Diner!</p>'+'</div>';
+		var infowindow = new google.maps.InfoWindow({
+			content: contentString
+		});
 		var marker = new google.maps.Marker({
 			position: gcresults[0].geometry.location,
 			title: title
+		});
+		marker.addListener('click', fuction() {
+			console.log('info clicked');
+			infowindow.open(map, marker);
 		});
 		var map = new google.maps.Map(document.getElementById(displayElement), mapProperties);
 		marker.setMap(map);

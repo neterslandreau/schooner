@@ -183,7 +183,7 @@ return [
         Cviebrock\EloquentSluggable\ServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         Overtrue\LaravelShoppingCart\ServiceProvider::class,
-
+        SimpleSoftwareIO\SMS\SMSServiceProvider::class,
     ],
 
     /*
@@ -235,6 +235,7 @@ return [
         'Uuid' => Webpatser\Uuid\Uuid::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'Cart' => Overtrue\LaravelShoppingCart\Facade::class,
+        'SMS' => SimpleSoftwareIO\SMS\Facades\SMS::class,
 
     ],
 
