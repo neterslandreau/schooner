@@ -46,7 +46,6 @@ class ItemsController extends Controller
             'featured' => 'required',
 
         ]);
-
         $item = Item::create([
             'type_id' => request('type_id'),
             'name' => request('name'),
@@ -54,6 +53,10 @@ class ItemsController extends Controller
             'price' => request('price'),
             'featured' => request('featured')
         ]);
+        if (request()->file('image')) {
+            $filename = $item->slug . '.png';
+            request()->file('image')->storeAs('public/items', $filename);
+        }
 
         session()->flash('message', 'Your menu item has been saved.');
 
@@ -83,7 +86,7 @@ class ItemsController extends Controller
         $types = Type::get();
 
             if (request()->method() === 'POST') {
-                // dd(request('featured'));
+
                  $this->validate(request(), [
                     'name' => 'required',
                     'description' => 'required',
@@ -92,6 +95,7 @@ class ItemsController extends Controller
                     'type_id' => 'required',
 
                 ]);
+
                 $item = Item::where('slug', $slug)->first();
                 $item->name = request('name');
                 $item->description = request('description');
@@ -99,6 +103,12 @@ class ItemsController extends Controller
                 $item->featured = request('featured');
                 $item->type_id = request('type_id');
                 $item->save();
+
+                if (request()->file('image')) {
+                    $filename = $item->slug . '.png';
+                    request()->file('image')->storeAs('public/items', $filename);
+                }
+
                 session()->flash('message', 'The item was successfully editted.');
                 return redirect()->home();
             }

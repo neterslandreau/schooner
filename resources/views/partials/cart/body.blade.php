@@ -23,7 +23,9 @@
 
     <tr id="cartRow">
     	<td colspan="4">
+
     	Your cart is empty.
+    	
     	</td>
     </tr>
 

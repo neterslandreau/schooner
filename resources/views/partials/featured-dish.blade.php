@@ -1,8 +1,14 @@
-<div class="col-xs-8 col-lg-4 col-md-4">
+<div class="col-xs-8 col-lg-4 col-md-4 text-center">
 
 	<h2>{{ $item->name }}</h2>
 
-	<p>
+    @if (\File::exists(public_path().'/storage/items/'.$item->slug.'.png'))
+
+            <img height="125" src="/storage/items/{{ $item->slug }}.png">
+
+    @endif
+
+    <p>
 		{{ $item->description }}
 	</p>
 

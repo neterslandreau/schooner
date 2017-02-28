@@ -14,6 +14,12 @@
 
             <div class="modal-body">
 
+            @if (\File::exists(public_path().'/storage/items/'.$item->slug.'.png'))
+
+                    <img height="300" src="/storage/items/{{ $item->slug }}.png">
+
+            @endif
+
                 <div class="form-group">
                     <label for="{{ $item->description }}">{{ $item->description }}</label>
                 </div>
@@ -26,7 +32,7 @@
                         <option value="{{ $x }}">{{ $x }}</option>
                         @endfor
                     </select>
-                    
+
                 </div>
 
             </div>

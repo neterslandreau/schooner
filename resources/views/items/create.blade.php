@@ -9,7 +9,7 @@
         <hr>
 
         @include ('layouts.errors')
-        <form method="post" action="/items">
+        <form method="post" action="/items" enctype="multipart/form-data">
 
             {{ csrf_field() }}
 
@@ -30,6 +30,11 @@
             <div class="form-group">
                 <label for="description">Description</label>
                 <input type="text" id="description" name="description" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="image">Image</label>
+                <input type="file" id="image" name="image" class="form-control">
             </div>
 
             <div class="form-group">

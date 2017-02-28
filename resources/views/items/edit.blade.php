@@ -6,7 +6,7 @@
     <div class="col-sm-8">
 
         @include ('layouts.errors')
-        <form method="post" action="/items/{{ $item->slug }}/edit">
+        <form method="post" action="/items/{{ $item->slug }}/edit" enctype="multipart/form-data">
 
             {{ csrf_field() }}
 
@@ -31,6 +31,16 @@
             <div class="form-group">
                 <label for="description">Description</label>
                 <input type="text" id="description" name="description" class="form-control" value="{{ $item->description }}">
+            </div>
+
+            <div class="form-group">
+                <label for="image">Image</label>
+                @if (\File::exists(public_path().'/storage/items/'.$item->slug.'.png'))
+
+                        <img height="100" src="/storage/items/{{ $item->slug }}.png">
+
+                @endif
+                <input type="file" id="image" name="image" class="form-control">
             </div>
 
             <div class="form-group">
