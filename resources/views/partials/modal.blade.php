@@ -16,7 +16,7 @@
 
             @if (\File::exists(public_path().'/storage/items/'.$item->slug.'.png'))
 
-                    <img height="150" src="/storage/items/{{ $item->slug }}.png">
+                    <div class="text-center"><img height="150" src="/storage/items/{{ $item->slug }}.png"></div>
 
             @endif
 
