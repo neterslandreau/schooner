@@ -4,7 +4,7 @@
 
     @if (\Storage::disk('s3')->exists('items/' . $item->slug . '.png'))
 
-        <img src="//diner.think-knot.com.s3.amazonaws.com/items/{{ $item->slug }}.png" height="100">
+        <img src="//{{ env('AWS_BUCKET') }}.s3.amazonaws.com/items/{{ $item->slug }}.png" height="100">
 
     @endif
 

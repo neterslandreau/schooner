@@ -7,7 +7,7 @@
         @if (\Storage::disk('s3')->exists('items/' . $item->slug . '.png'))
 
         <div class="col-md-12">
-            <img src="//diner.think-knot.com.s3.amazonaws.com/items/{{ $item->slug }}.png" width="175">
+            <img src="//{{ env('AWS_BUCKET') }}.s3.amazonaws.com/items/{{ $item->slug }}.png" width="175">
         </div>
 
         @endif
@@ -28,7 +28,7 @@
         @if (\Storage::disk('s3')->exists('items/' . $item->slug . '.png'))
 
         <div class="col-md-12">
-            <img src="//diner.think-knot.com.s3.amazonaws.com/items/{{ $item->slug }}.png" width="175">
+            <img src="//{{ env('AWS_BUCKET') }}.s3.amazonaws.com/items/{{ $item->slug }}.png" width="175">
         </div>
 
         @endif
@@ -51,7 +51,7 @@
         @if (\Storage::disk('s3')->exists('items/' . $item->slug . '.png'))
 
         <div class="col-md-12">
-            <img src="//diner.think-knot.com.s3.amazonaws.com/items/{{ $item->slug }}.png" width="175">
+            <img src="//{{ env('AWS_BUCKET') }}.s3.amazonaws.com/items/{{ $item->slug }}.png" width="175">
         </div>
 
         @endif
@@ -74,7 +74,7 @@
         @if (\Storage::disk('s3')->exists('items/' . $item->slug . '.png'))
 
         <div class="col-md-12">
-            <img src="//diner.think-knot.com.s3.amazonaws.com/items/{{ $item->slug }}.png" width="175">
+            <img src="//{{ env('AWS_BUCKET') }}.s3.amazonaws.com/items/{{ $item->slug }}.png" width="175">
         </div>
 
         @endif
