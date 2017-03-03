@@ -105,8 +105,9 @@ class ItemsController extends Controller
                 $item->save();
 
                 if (request()->file('image')) {
+                    // dd(request()->file('image'));
                     $filename = $item->slug . '.png';
-                    request()->file('image')->storeAs('public/items', $filename);
+                    $path = request()->file('image')->storeAs('items', $filename, 's3');
                 }
 
                 session()->flash('message', 'The item was successfully editted.');

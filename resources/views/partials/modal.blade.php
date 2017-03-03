@@ -14,11 +14,11 @@
 
             <div class="modal-body">
 
-            @if (\File::exists(public_path().'/storage/items/'.$item->slug.'.png'))
+                @if (\Storage::disk('s3')->exists('items/' . $item->slug . '.png'))
 
-                    <div class="text-center"><img height="150" src="/storage/items/{{ $item->slug }}.png"></div>
+                    <img src="//diner.think-knot.com.s3.amazonaws.com/items/{{ $item->slug }}.png" width="100">
 
-            @endif
+                @endif
 
                 <div class="form-group">
                     <label for="{{ $item->description }}">{{ $item->description }}</label>

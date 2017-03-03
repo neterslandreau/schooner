@@ -2,9 +2,9 @@
 
 	<h2>{{ $item->name }}</h2>
 
-    @if (\File::exists(public_path().'/storage/items/'.$item->slug.'.png'))
+    @if (\Storage::disk('s3')->exists('items/' . $item->slug . '.png'))
 
-            <img height="125" src="/storage/items/{{ $item->slug }}.png">
+        <img src="//diner.think-knot.com.s3.amazonaws.com/items/{{ $item->slug }}.png" height="200">
 
     @endif
 
