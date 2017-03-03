@@ -1,40 +1,40 @@
 @extends('layouts.diner-layout')
 
 @section('content')
-  <div id="diner">
-  
-      <div class="row row-offcanvas row-offcanvas-right">
+<div id="diner">
 
-        <div class="col-xs-12 col-sm-9">
+	<div class="row row-offcanvas row-offcanvas-right">
 
-          <p class="pull-right visible-xs">
+		<div class="col-xs-12 col-sm-9">
 
-            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle Menu</button>
+			<p class="pull-right visible-xs">
 
-          </p>
+			<button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle Menu</button>
 
-          @include('partials.jumbotron')
+			</p>
 
-          <div class="row">
+			@include('partials.jumbotron')
 
-          @foreach ($featuredItems as $item)
-            @include('partials.featured-dish')
-          @endforeach
- 
-          </div>
+			<div class="row">
 
-        </div>
+				@foreach ($featuredItems as $item)
+				@include('partials.featured-dish')
+				@endforeach
 
-        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+			</div>
 
-        @include('partials.sidebar')
+		</div>
 
-        </div>
+	<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
 
-      </div>
+		@include('partials.sidebar')
 
-      <hr>
+	</div>
 
-  </div>
+	</div>
+
+<hr>
+
+</div>
 
 @endsection
