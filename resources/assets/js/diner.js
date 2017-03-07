@@ -142,10 +142,10 @@ Gmap.populateMap = function(addr, title, canvas) {
 			position: gcresults[0].geometry.location,
 			title: title
 		});
-		marker.addListener('click', fuction() {
-			console.log('info clicked');
-			infowindow.open(map, marker);
-		});
+		// marker.addListener('click', fuction() {
+		// 	console.log('info clicked');
+		// 	infowindow.open(map, marker);
+		// });
 		var map = new google.maps.Map(document.getElementById(displayElement), mapProperties);
 		marker.setMap(map);
 	});
