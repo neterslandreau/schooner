@@ -4,6 +4,7 @@
 			<td>Menu Type</td>
 			<td>Name</td>
 			<td>Description</td>
+			<td>Image</td>
 			<td>Price</td>
 			<td>Featured</td>
 			<td>Edit</td>
@@ -16,6 +17,15 @@
 			<td>{{ $item->type->name }}</td>
 			<td>{{ $item->name }}</td>
 			<td>{{ $item->description }}</td>
+			<td>
+			
+			@if (Storage::disk('s3')->exists('items/' . $item->slug . '.png'))
+
+				<img src="//{{ env('AWS_BUCKET') }}.s3.amazonaws.com/items/{{ $item->slug }}.png" height="100">
+
+			@endif
+				
+			</td>
 			<td>${{ $item->price }}</td>
 			<td>{{ ($item->featured) ? 'Yes' : 'No' }}</td>
             <td><a class="glyphicon glyphicon-pencil nav-link" href="/items/{{ $item->slug }}/edit" role="button"><span></span></a></td>
