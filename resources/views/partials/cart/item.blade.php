@@ -10,10 +10,12 @@
         @endfor
         </select>
 	</td>
+	@if (in_array($item->type->slug, ['lunch', 'breakfast']))
 	<td>
 		<label for "notes">How do you want that?</label>
 		<input name="notes" id="notes_{{ $item->__raw_id }}" value="{{ $item->notes }}">
 	</td>
+	@endif
 <!-- 	<td>
 		<button id="update_{{ $item->__raw_id }}" class="btn btn-default" title="Update Quantity" type="button" value="update">
 			<span class="glyphicon glyphicon-save"></span>

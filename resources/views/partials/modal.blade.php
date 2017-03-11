@@ -37,12 +37,16 @@
 
 				</div>
 
+				@if(in_array($item->type->slug, ['breakfast', 'lunch']))
+
 				<div class="form-group">
 					<label for="notes">How do you want that?</label>
 
 					<input id="{{ $item->slug }}_notes" name="{{ $item->slug }}_notes">
 
 				</div>
+
+				@endif
 
 			</div>
 
