@@ -1,10 +1,19 @@
+<div>
 Phone: {{ $phone }}
+</div>
 
+<div>
 {{ $name }} placed this order:
+</div>
 
 @foreach ($items as $item)
-{{ $item->qty }} - {{ $item->name }}
-at a cost of ${{ $item->price }} each
+<div>
+{{ $item->qty }} - {{ $item->name }}<br>
+{{ $item->notes }}
+</div>
+
 @endforeach
 
-The order total is ${{ $item->total }}
+<div>
+The order total is ${{ number_format(\Cart::total(), 2) }}
+</div>

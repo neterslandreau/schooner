@@ -44,6 +44,7 @@ class InvoicesController extends Controller
 			'name' => 'required',
 
 		]);
+
 		Mail::to('neterslandreau@gmail.com')->send(new OrderShipped(request('phone'), request('name')));
 		// \SMS::send('Your SMS Message', null, function($sms) {
 		// 	$sms->to('+19545886692');

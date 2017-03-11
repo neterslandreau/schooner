@@ -10,6 +10,10 @@
         @endfor
         </select>
 	</td>
+	<td>
+		<label for "notes">Notes</label>
+		<input name="notes" id="notes_{{ $item->__raw_id }}" value="{{ $item->notes }}">
+	</td>
 <!-- 	<td>
 		<button id="update_{{ $item->__raw_id }}" class="btn btn-default" title="Update Quantity" type="button" value="update">
 			<span class="glyphicon glyphicon-save"></span>

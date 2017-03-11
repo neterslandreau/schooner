@@ -5,11 +5,13 @@ $(function() {
     $('[id^="slug_"]').on('click', function() {
     	var slug = this.id.split('_')[1];
     	var quantity = $('#'+slug+'_quantity').find(":selected").text();
+    	var notes = $('#'+slug+'_notes').val();
 
     	var url = 'cart';
     	var data = {
     		slug: slug,
     		quantity: quantity,
+    		notes: notes,
     		_token: Laravel.csrfToken
     	};
 
@@ -36,11 +38,15 @@ $(function() {
     $('[id^="qty_"]').on('change', function() {
     	var slug = this.id.split('_')[1];
     	var quantity = $('#qty_'+slug+' :selected').val();
+    	var notes = $('#notes_'+slug).val();
+
+    	console.log(notes);
 
     	var url = 'cart/update';
     	var data = {
     		slug: slug,
     		quantity: quantity,
+    		notes: notes,
     		_token: Laravel.csrfToken
     	};
 

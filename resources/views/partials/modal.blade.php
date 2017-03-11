@@ -1,53 +1,60 @@
 <!-- Modal -->
 <div class="modal fade" id="{{ $item->slug }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 
-    <div class="modal-dialog" role="document">
+	<div class="modal-dialog" role="document">
 
-        <div class="modal-content">
+		<div class="modal-content">
 
-            <div class="modal-header">
+			<div class="modal-header">
 
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="{{ $item->slug }}">{{ $item->name }}</h4>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="{{ $item->slug }}">{{ $item->name }}</h4>
 
-            </div>
+			</div>
 
-            <div class="modal-body">
+			<div class="modal-body">
 
-                @if (\Storage::disk('s3')->exists('items/' . $item->slug . '.png'))
+				@if (\Storage::disk('s3')->exists('items/' . $item->slug . '.png'))
 
-                <div class="col-md-12">
-                <img src="//{{ env('AWS_BUCKET') }}.s3.amazonaws.com/items/{{ $item->slug }}.png" width="100%">
-                </div>
+				<div class="col-md-12">
+					<img src="//{{ env('AWS_BUCKET') }}.s3.amazonaws.com/items/{{ $item->slug }}.png" width="100%">
+				</div>
 
-                @endif
+				@endif
 
-                <div class="form-group">
-                    <label for="{{ $item->description }}">{{ $item->description }}</label>
-                </div>
+				<div class="form-group">
+					<label for="{{ $item->description }}">{{ $item->description }}</label>
+				</div>
 
-                <div class="form-group">
-                    <label for="quantity">How many?</label>
+				<div class="form-group">
+					<label for="quantity">How many?</label>
 
-                    <select id="{{ $item->slug }}_quantity">
-                        @for ($x = 1; $x <= 10; $x++)
-                        <option value="{{ $x }}">{{ $x }}</option>
-                        @endfor
-                    </select>
+					<select id="{{ $item->slug }}_quantity">
+						@for ($x = 1; $x <= 10; $x++)
+						<option value="{{ $x }}">{{ $x }}</option>
+						@endfor
+					</select>
 
-                </div>
+				</div>
 
-            </div>
+				<div class="form-group">
+					<label for="notes">Notes</label>
 
-            <div class="modal-footer">
+					<input id="{{ $item->slug }}_notes" name="{{ $item->slug }}_notes">
 
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                <button id="slug_{{ $item->slug }}" type="button" class="btn btn-primary" data-dismiss="modal">Add to cart</button>
+				</div>
 
-            </div>
+			</div>
 
-        </div>
+			<div class="modal-footer">
 
-    </div>
+				<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+				<button id="slug_{{ $item->slug }}" type="button" class="btn btn-primary" data-dismiss="modal">Add to cart</button>
+
+			</div>
+
+		</div>
+
+	</div>
 
 </div>

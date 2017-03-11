@@ -4,30 +4,30 @@
 
 @if (count($items))
 
-    @foreach ($items as $item)
+	@foreach ($items as $item)
 
-        @include('partials.cart.item')
+		@include('partials.cart.item')
 
-    @endforeach
+	@endforeach
 
-    <tr id="cartRow">
-    	<td colspan="2">
-    	<label>Cart total:</label>
-    	</td>
-    	<td colspan="1" id="cartTotal">
-    		<label>${{ number_format(\Cart::total(), 2) }}</label>
-    	</td>
-    </tr>
+	<tr id="cartRow">
+		<td colspan="2">
+		<label>Cart total:</label>
+		</td>
+		<td colspan="1" id="cartTotal">
+			<label>${{ number_format(\Cart::total(), 2) }}</label>
+		</td>
+	</tr>
 
 @else
 
-    <tr id="cartRow">
-    	<td colspan="4">
+	<tr id="cartRow">
+		<td colspan="4">
 
-    	Your cart is empty.
-    	
-    	</td>
-    </tr>
+		Your cart is empty.
+		
+		</td>
+	</tr>
 
 @endif
 
