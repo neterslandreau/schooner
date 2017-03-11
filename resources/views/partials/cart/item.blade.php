@@ -11,7 +11,7 @@
         </select>
 	</td>
 	<td>
-		<label for "notes">Notes</label>
+		<label for "notes">How do you want that?</label>
 		<input name="notes" id="notes_{{ $item->__raw_id }}" value="{{ $item->notes }}">
 	</td>
 <!-- 	<td>

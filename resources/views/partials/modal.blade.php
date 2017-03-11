@@ -38,7 +38,7 @@
 				</div>
 
 				<div class="form-group">
-					<label for="notes">Notes</label>
+					<label for="notes">How do you want that?</label>
 
 					<input id="{{ $item->slug }}_notes" name="{{ $item->slug }}_notes">
 
