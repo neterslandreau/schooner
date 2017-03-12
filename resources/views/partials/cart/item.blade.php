@@ -10,10 +10,11 @@
         @endfor
         </select>
 	</td>
-	@if (in_array($item->type->slug, ['lunch', 'breakfast']))
+	@if ($item->notes)
 	<td>
-		<label for "notes">How do you want that?</label>
-		<input name="notes" id="notes_{{ $item->__raw_id }}" value="{{ $item->notes }}">
+		<label for "notes">Order Details</label>
+		{{ $item->notes }}
+		<!-- <input name="notes" id="notes_{{ $item->__raw_id }}" value="{{ $item->notes }}"> -->
 	</td>
 	@endif
 <!-- 	<td>
