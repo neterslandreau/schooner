@@ -7,22 +7,22 @@ use Illuminate\Database\Eloquent\Model as Eloquent;
 
 class Model extends Eloquent
 {
-    use Uuids;
-    use Sluggable;
-    use SoftDeletes;
+	use Uuids;
+	use Sluggable;
+	use SoftDeletes;
 
-    protected $guarded = [];
+	protected $guarded = [];
  
 	public $incrementing = false;
 	
-    protected $dates = ['deleted_at'];
+	protected $dates = ['deleted_at'];
 
 	public function sluggable()
 	{
-	    return [
-	        'slug' => [
-	            'source' => 'name',
-	        ],
-	    ];
+		return [
+			'slug' => [
+				'source' => 'name',
+			],
+		];
 	}
 }
