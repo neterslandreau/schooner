@@ -14,7 +14,7 @@
 
       </button>
 
-      <a class="navbar-brand" href="/">David's Diner</a>
+      <a class="navbar-brand" href="/">{{ config('app.name') }}</a>
 
     </div>
 

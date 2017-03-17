@@ -12,7 +12,13 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => 'David\'s Diner',
+    'name' => 'Cafe Solo',
+
+    'address' => '2931 Griffin Rd Fort Lauderdale, FL 33312',
+
+    'hours' => 'Monday through Saturday 7am - 3pm',
+
+    'telephone' => '954-822-6840 / 954-549-5264',
 
     /*
     |--------------------------------------------------------------------------
