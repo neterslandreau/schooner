@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\URL;
-use App\Mail\OrderShipped;
+use App\Mail\Order;
 
 class InvoicesController extends Controller
 {
@@ -45,9 +45,15 @@ class InvoicesController extends Controller
 
 		]);
 
-		Mail::to('neterslandreau@gmail.com', 'cafesolo2931@gmail.com')->send(new OrderShipped(request('phone'), request('name')));
-		// \SMS::send('Your SMS Message', null, function($sms) {
-		// 	$sms->to('+19545886692');
+		$order = new Order(request('phone'), request('name'));
+
+		Mail::to(env('DINER_EMAIL'))
+			->bcc('diner@think-knot.com')
+			->send($order);
+		// dd($order);
+		// \SMS::send('my message', null, function($sms) {
+		// 	$sms->attachImage('/dev/null');
+		// 	$sms->to('+19545886692', 'verizonwireless');
 		// });
 		\Cart::clean();
 		session()->flash('message', 'Your order has been placed. Thank you, '.request('name').'!');

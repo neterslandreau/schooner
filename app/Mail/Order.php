@@ -7,7 +7,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class OrderShipped extends Mailable
+class Order extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -33,7 +33,7 @@ class OrderShipped extends Mailable
      */
     public function build()
     {
-        return $this->subject('Testing')
+        return $this->subject('Order from '.$this->phone)
                     ->view('emails.order');
     }
 }
