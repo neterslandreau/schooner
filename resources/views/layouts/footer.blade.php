@@ -1,4 +1,4 @@
 <footer>
-	<p class="centered">&copy; <?php echo date('Y'); ?> David's Diner, LLC.</p>
+	<p class="centered">&copy; <?php echo date('Y'); ?> Cafe Solo, LLC.</p>
 </footer>
 
