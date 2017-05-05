@@ -12,7 +12,7 @@ class Model extends Eloquent
 	use SoftDeletes;
 
 	protected $guarded = [];
- 
+
 	public $incrementing = false;
 	
 	protected $dates = ['deleted_at'];
