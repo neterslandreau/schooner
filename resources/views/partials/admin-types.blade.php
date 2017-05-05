@@ -4,7 +4,7 @@
 			<td>Name</td>
 			<td>Description</td>
 			<td>Edit</td>
-			<td>Delete</td>
+			<!-- <td>Delete</td> -->
 		</tr>
 	</thead>
 	<tbody>
@@ -15,7 +15,7 @@
 			<td>{{ $type->name }}</td>
 			<td>{{ $type->description }}</td>
             <td><a class="glyphicon glyphicon-pencil nav-link" href="/types/{{ $type->slug }}/edit" role="button"><span></span></a></td>
-            <td><a class="glyphicon glyphicon-trash nav-link" href="/types/{{ $type->slug }}/delete" role="button"><span></span></a></td>
+            <!-- <td><a class="glyphicon glyphicon-trash nav-link" href="/types/{{ $type->slug }}/delete" role="button"><span></span></a></td> -->
 		</tr>
 
 	@endforeach
