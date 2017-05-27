@@ -13,7 +13,7 @@
 
 			<div class="modal-body">
 
-			Content pending.
+			Hosting provided by <a href="http://think-knot.com" target="_blank">The Neters Group</a>
 			  
 			</div>
 
