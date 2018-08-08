@@ -12,13 +12,13 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => 'Cafe Solo',
+    'name' => 'Schooner Or Later Bar & Grill of Davie',
 
-    'address' => '2931 Griffin Rd Fort Lauderdale, FL 33312',
+    'address' => '5191 S State Road 7, Davie, FL 33314',
 
-    'hours' => 'Monday through Saturday 7am - 3pm',
+    'hours' => '',
 
-    'telephone' => '954-822-6840 / 954-549-5264',
+    'telephone' => '754-701-5968',
 
     /*
     |--------------------------------------------------------------------------
@@ -57,7 +57,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://diner.dev'),
+    'url' => env('APP_URL', 'http://restaurant.ndr'),
 
     /*
     |--------------------------------------------------------------------------

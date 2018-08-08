@@ -52,7 +52,7 @@
 
     </div>
 
-    <script src='http://maps.google.com/maps/api/js?key=AIzaSyA4ElrMPUX1d9KEt-fIEwsDICCdNitjw3o'></script>
+    <!-- <script src='http://maps.google.com/maps/api/js?key=AIzaSyA4ElrMPUX1d9KEt-fIEwsDICCdNitjw3o'></script> -->
     <script src="{{ asset('js/app.js') }}"></script>
   </body>
 </html>

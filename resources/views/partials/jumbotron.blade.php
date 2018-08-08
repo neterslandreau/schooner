@@ -1,6 +1,6 @@
 <div class="jumbotron">
 	<div class="col-md-5">
-		<img class="img-rounded" src="/img/davelogo.png" style="width: 100%;">
+		<img class="img-rounded" src="/img/schooner.jpg" style="width: 100%;">
 	</div>
 	<div class="col-md-7">
 		@include('partials.info.contact')
