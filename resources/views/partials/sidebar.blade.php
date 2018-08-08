@@ -1,3 +1,4 @@
+<aside id="sidebar-offcanvas">
 <h2>Breakfasts</h2>
 <div class="list-group">
 @foreach ($breakfastItems as $item)
@@ -90,4 +91,4 @@
 @endforeach
 
 </div>
-
+</aside>
