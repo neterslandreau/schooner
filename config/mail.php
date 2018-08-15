@@ -56,8 +56,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'diner@think-knot.com'),
-        'name' => env('MAIL_FROM_NAME', 'David\'s Diner'),
+        'address' => env('MAIL_FROM_ADDRESS', 'schooner@think-knot.com'),
+        'name' => env('MAIL_FROM_NAME', 'Schooner or Later Bar & Grill of Davie'),
     ],
 
     /*
