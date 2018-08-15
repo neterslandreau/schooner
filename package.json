@@ -10,11 +10,12 @@
     "axios": "^0.15.3",
     "bootstrap-sass": "^3.3.7",
     "jquery": "^3.1.1",
-    "laravel-mix": "^0.7.2",
+    "laravel-mix": "^2.1.11",
     "lodash": "^4.17.4",
     "vue": "^2.1.10"
   },
   "dependencies": {
-    "bootstrap-overlay": "^0.1.0"
+    "bootstrap-overlay": "^0.1.0",
+    "cross-env": "^5.2.0"
   }
 }
