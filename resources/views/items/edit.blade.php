@@ -35,10 +35,9 @@
 
             <div class="form-group">
                 <label for="image">Image</label>
-                @if (Storage::disk('local')->exists('public/items/' . $item->slug . '.png'))
+                @if (\Storage::disk('s3')->exists('items/' . $item->slug . '.png'))
                     slug: {{ $item->slug }}
-                    <!-- <img src="//{{ env('AWS_BUCKET') }}.s3.amazonaws.com/items/{{ $item->slug }}.png" height="100"> -->
-                    <img src="/items/ {{ $item->slug }}.png" height="100">
+                    <img src="//{{ env('AWS_BUCKET') }}.s3.amazonaws.com/items/{{ $item->slug }}.png" height="100">
 
                 @endif
 
