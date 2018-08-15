@@ -17,6 +17,8 @@
 
     </a>
 
+    @include('partials.modal')
+
 @endforeach
 </div>
 
@@ -37,6 +39,8 @@
         {{ $item->name }} {{ $item->price }}
 
     </a>
+
+    @include('partials.modal')
 
 @endforeach
 
