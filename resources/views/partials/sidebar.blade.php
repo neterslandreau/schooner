@@ -8,7 +8,7 @@
         @if (\Storage::disk('s3')->exists('items/' . $item->slug . '.png'))
 
         <div class="col-md-12">
-            <img class="img-rounded" src="https://{{ env('AWS_BUCKET') }}.s3.amazonaws.com/items/{{ $item->slug }}.png" width="175">
+            <img class="img-rounded" src="//{{ env('AWS_BUCKET') }}.s3.amazonaws.com/items/{{ $item->slug }}.png" width="175">
         </div>
 
         @endif
@@ -31,7 +31,7 @@
         @if (\Storage::disk('s3')->exists('items/' . $item->slug . '.png'))
 
         <div class="col-md-12">
-            <img class="img-rounded" src="https://{{ env('AWS_BUCKET') }}.s3.amazonaws.com/items/{{ $item->slug }}.png" width="175">
+            <img class="img-rounded" src="//{{ env('AWS_BUCKET') }}.s3.amazonaws.com/items/{{ $item->slug }}.png" width="175">
         </div>
 
         @endif
@@ -56,7 +56,7 @@
         @if (\Storage::disk('s3')->exists('items/' . $item->slug . '.png'))
 
         <div class="col-md-12">
-            <img class="img-rounded" src="https://{{ env('AWS_BUCKET') }}.s3.amazonaws.com/items/{{ $item->slug }}.png" width="125">
+            <img class="img-rounded" src="//{{ env('AWS_BUCKET') }}.s3.amazonaws.com/items/{{ $item->slug }}.png" width="125">
         </div>
 
         @endif
@@ -81,7 +81,7 @@
         @if (\Storage::disk('s3')->exists('items/' . $item->slug . '.png'))
 
         <div class="col-md-12">
-            <img class="img-rounded" src="https://{{ env('AWS_BUCKET') }}.s3.amazonaws.com/items/{{ $item->slug }}.png" width="175">
+            <img class="img-rounded" src="//{{ env('AWS_BUCKET') }}.s3.amazonaws.com/items/{{ $item->slug }}.png" width="175">
         </div>
 
         @endif
