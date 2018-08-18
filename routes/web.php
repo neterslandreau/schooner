@@ -27,6 +27,7 @@ Route::post('cart', 'CartController@store');
 Route::post('cart/update', 'CartController@update');
 Route::post('cart/remove', 'CartController@destroy');
 Route::post('checkout', 'InvoicesController@store');
+Route::post('process', 'InvoicesController@process');
 
 Auth::routes();
 

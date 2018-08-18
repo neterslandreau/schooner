@@ -7,6 +7,10 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\URL;
 use App\Mail\Order;
+use \Stripe\Stripe;
+// use Cartalyst\Stripe\Stripe;
+use net\authorize\api\contract\v1 as AnetAPI;
+use net\authorize\api\controller as AnetController;
 
 class InvoicesController extends Controller
 {
@@ -42,9 +46,47 @@ class InvoicesController extends Controller
 		$this->validate(request(), [
 			'phone' => 'required',
 			'name' => 'required',
-
 		]);
 
+		$order = new Order(request('phone'), request('name'));
+
+		Mail::to(env('DINER_EMAIL'))
+			->bcc('diner@think-knot.com')
+			->send($order);
+		// dd($order);
+		// \SMS::send('my message', null, function($sms) {
+		// 	$sms->attachImage('/dev/null');
+		// 	$sms->to('+19545886692', 'verizonwireless');
+		// });
+		\Cart::clean();
+		session()->flash('message', 'Your order has been placed. Thank you, '.request('name').'!');
+		return redirect()->to('/');
+	}
+
+	/**
+	 * Store a newly created resource in storage.
+	 *
+	 * @param  \Illuminate\Http\Request  $request
+	 * @return \Illuminate\Http\Response
+	 */
+	public function process(Request $request)
+	{
+		Stripe::setApiKey(env('STRIPE_SECRET'));
+
+		$this->validate(request(), [
+			'name' => 'required',
+			'phone' => 'required',
+			'stripeToken' => 'required'
+		]);
+
+		$token = request('stripeToken');
+
+		$charge = \Stripe\Charge::create([
+		    'amount' => number_format(\Cart::total()) * 100,
+		    'currency' => 'usd',
+		    'receipt_email' => request('stripeEmail'),
+		    'source' => $token,
+		]);
 		$order = new Order(request('phone'), request('name'));
 
 		Mail::to(env('DINER_EMAIL'))

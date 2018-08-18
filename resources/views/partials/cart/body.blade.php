@@ -15,7 +15,7 @@
 		<label>Cart total:</label>
 		</td>
 		<td colspan="1" id="cartTotal">
-			<label>${{ number_format(\Cart::total(), 2) }}</label>
+			<label id="cardTotal">${{ number_format(\Cart::total(), 2) }}</label>
 		</td>
 	</tr>
 

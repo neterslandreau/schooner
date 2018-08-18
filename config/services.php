@@ -30,9 +30,12 @@ return [
 	],
 
 	'stripe' => [
-		'model' => App\User::class,
-		'key' => env('STRIPE_KEY'),
 		'secret' => env('STRIPE_SECRET'),
+	],
+
+	'authorize' => [
+		'login' => env('AUTHORIZE_PAYMENT_API_LOGIN_ID'),
+		'key' => env('AUTHORIZE_PAYMENT_TRANSACTION_KEY'),
 	],
 
 ];

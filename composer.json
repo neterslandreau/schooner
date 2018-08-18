@@ -6,13 +6,18 @@
     "type": "project",
     "require": {
         "php": ">=5.6.4",
+        "ext-curl": "*",
+        "authorizenet/authorizenet": "~1.9.6",
         "barryvdh/laravel-debugbar": "^2.3",
+        "cartalyst/stripe-laravel": "6.0.*",
         "cviebrock/eloquent-sluggable": "^4.2",
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0",
+        "laravelcollective/html": "^5.4.0",
         "league/flysystem-aws-s3-v3": "^1.0",
         "overtrue/laravel-shopping-cart": "1.0.*",
         "simplesoftwareio/simple-sms": "3.1.*",
+        "stripe/stripe-php": "^6.15",
         "webpatser/laravel-uuid": "^2.0"
     },
     "require-dev": {

@@ -190,6 +190,8 @@ return [
         Barryvdh\Debugbar\ServiceProvider::class,
         Overtrue\LaravelShoppingCart\ServiceProvider::class,
         SimpleSoftwareIO\SMS\SMSServiceProvider::class,
+        Collective\Html\HtmlServiceProvider::class,
+        Cartalyst\Stripe\Laravel\StripeServiceProvider::class,
     ],
 
     /*
@@ -242,6 +244,9 @@ return [
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'Cart' => Overtrue\LaravelShoppingCart\Facade::class,
         'SMS' => SimpleSoftwareIO\SMS\Facades\SMS::class,
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
+        'Stripe' => Cartalyst\Stripe\Laravel\Facades\Stripe::class,
 
     ],
 
