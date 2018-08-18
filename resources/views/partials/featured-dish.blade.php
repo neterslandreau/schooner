@@ -4,7 +4,7 @@
 
     @if (\Storage::disk('s3')->exists('items/' . $item->slug . '.png'))
 
-        <img class="img-rounded" src="//{{ env('AWS_BUCKET') }}.s3.amazonaws.com/items/{{ $item->slug }}.png" width="200">
+        <img class="img-rounded" src="https://{{ env('AWS_BUCKET') }}.s3.amazonaws.com/items/{{ $item->slug }}.png" width="200">
 
     @endif
 
