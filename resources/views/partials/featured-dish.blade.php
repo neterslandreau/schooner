@@ -2,9 +2,9 @@
 
 	<h2>{{ $item->name }}</h2>
 
-    @if (\Storage::disk('s3')->exists('items/' . $item->slug . '.png'))
+	@if (Storage::disk('local')->exists('public/items/' . $item->slug . '.png'))
 
-        <img class="img-rounded" src="//{{ env('AWS_BUCKET') }}.s3.amazonaws.com/items/{{ $item->slug }}.png" width="200">
+		<img class="img-rounded" src="/storage/items/{{ $item->slug }}.png" height="100">
 
     @endif
 

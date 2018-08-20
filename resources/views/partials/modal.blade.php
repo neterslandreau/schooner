@@ -14,13 +14,15 @@
 
 			<div class="modal-body">
 
-				@if (\Storage::disk('s3')->exists('items/' . $item->slug . '.png'))
-
 				<div class="col-md-12">
-					<img class="img-rounded" src="//{{ env('AWS_BUCKET') }}.s3.amazonaws.com/items/{{ $item->slug }}.png" width="100%">
-				</div>
+
+				@if (Storage::disk('local')->exists('public/items/' . $item->slug . '.png'))
+
+					<img class="img-rounded" src="/storage/items/{{ $item->slug }}.png" height="50">
 
 				@endif
+
+				</div>
 
 				<div class="form-group">
 					<label for="{{ $item->description }}">{{ $item->description }}</label>
