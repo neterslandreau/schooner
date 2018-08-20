@@ -8,6 +8,7 @@
         "php": ">=5.6.4",
         "ext-curl": "*",
         "authorizenet/authorizenet": "~1.9.6",
+        "aws/aws-sdk-php": "^3.64",
         "barryvdh/laravel-debugbar": "^2.3",
         "cartalyst/stripe-laravel": "6.0.*",
         "cviebrock/eloquent-sluggable": "^4.2",

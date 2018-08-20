@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\URL;
 use App\Mail\Order;
+use App\Invoice;
 use \Stripe\Stripe;
 // use Cartalyst\Stripe\Stripe;
 use net\authorize\api\contract\v1 as AnetAPI;
@@ -43,9 +44,27 @@ class InvoicesController extends Controller
 	public function store(Request $request)
 	{
 
+		// dd(\Cart::all());
 		$this->validate(request(), [
 			'phone' => 'required',
 			'name' => 'required',
+		]);
+
+		if (!request('email')) {
+			$request['email'] = 'none provided';
+		}
+		$email = request('email');
+		$name = request('name');
+		$phone = request('phone');
+		$chargeType = 'cash';
+
+		$invoice = Invoice::create([
+			'phone' => $phone,
+			'name' => $name,
+			'email' => $email,
+			'charge_type' => $chargeType,
+			'total' => \Cart::total(),
+
 		]);
 
 		$order = new Order(request('phone'), request('name'));
