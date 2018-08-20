@@ -107,10 +107,10 @@ class ItemsController extends Controller
                 if (request()->file('image')) {
                     // dd(request()->file('image'));
                     $filename = $item->slug . '.png';
-                    $path = request()->file('image')->storeAs('items', $filename, 's3');
+                    $path = request()->file('image')->storeAs('public/items', $filename, 'local');
                 }
 
-                session()->flash('message', 'The item was successfully editted.');
+                session()->flash('message', 'The item was successfully edited.');
                 return redirect()->home();
             }
 
