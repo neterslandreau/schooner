@@ -35,9 +35,9 @@
 
             <div class="form-group">
                 <label for="image">Image</label>
-                @if (\Storage::disk('s3')->exists('items/' . $item->slug . '.png'))
-                    slug: {{ $item->slug }}
-                    <img src="//{{ env('AWS_BUCKET') }}.s3.amazonaws.com/items/{{ $item->slug }}.png" height="100">
+                @if (Storage::disk('local')->exists('public/items/' . $item->slug . '.png'))
+
+                    <img class="img-rounded" src="/storage/items/{{ $item->slug }}.png" height="125">
 
                 @endif
 
