@@ -37,7 +37,7 @@
                 <label for="image">Image</label>
                 @if (Storage::disk('local')->exists('public/items/' . $item->slug . '.png'))
 
-                    <img class="img-rounded" src="/storage/items/{{ $item->slug }}.png" height="125">
+                    <img class="img-rounded" src="/img/small/{{ $item->slug }}.png" height="125">
 
                 @endif
 
