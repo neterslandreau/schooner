@@ -5,7 +5,7 @@
 
     <a class="list-group-item" data-toggle="modal" data-target="#{{ $item->slug }}">
 
-        <div class="col-md-12">
+        <div class="col-xs-10 col-md-12">
 
         @if (Storage::disk('local')->exists('public/items/' . $item->slug . '.png'))
 
@@ -29,7 +29,7 @@
 
     <a class="list-group-item" data-toggle="modal" data-target="#{{ $item->slug }}">
 
-        <div class="col-md-12">
+        <div class="col-xs-10 col-md-12">
 
         @if (Storage::disk('local')->exists('public/items/' . $item->slug . '.png'))
 
@@ -55,7 +55,7 @@
 
     <a class="list-group-item" data-toggle="modal" data-target="#{{ $item->slug }}">
 
-        <div class="col-md-12">
+        <div class="col-xs-15 col-md-12">
 
         @if (Storage::disk('local')->exists('public/items/' . $item->slug . '.png'))
 
@@ -82,7 +82,7 @@
 
     <a class="list-group-item" data-toggle="modal" data-target="#{{ $item->slug }}">
 
-        <div class="col-md-12">
+        <div class="col-xs-10 col-md-12">
 
         @if (Storage::disk('local')->exists('public/items/' . $item->slug . '.png'))
 
