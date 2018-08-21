@@ -122,44 +122,18 @@
 					</div>
 				</div>
 
-<!-- 
-				<div class="form-group">
-                    <label for="cnumber">Card Number</label>
-                    <input type="text" class="form-control" id="cnumber" name="cnumber" placeholder="Enter Card Number">
-                </div>
-
-                <div class="form-group">
-                  <label for="card-expiry-month">Expiration Month</label>
-                  {{ Form::selectMonth(null, null, ['name' => 'card_expiry_month', 'class' => 'form-control', 'required']) }}
-                </div>
-
-                <div class="form-group">
-                  <label for="card-expiry-year">Expiration Year</label>
-                  {{ Form::selectYear(null, date('Y'), date('Y') + 10, null, ['name' => 'card_expiry_year', 'class' => 'form-control', 'required']) }}
-                </div>
-
-                <div class="form-group">
-                    <label for="ccode">Card Code</label>
-                    <input type="text" class="form-control" id="ccode" name="ccode" placeholder="Enter Card Code">
-                </div>
-
-                <div class="form-group">
-                    <label for="camount">Amount</label>
-                    <input type="text" class="form-control" id="camount" name="camount" placeholder="Enter Amount" >
-                </div>
- -->
- 			<div style="text-align:right">
-				<script
-					src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-					data-key="pk_test_L78ulCkylxUyYs8sshJtdrww"
-					data-amount="999"
-					data-name="dev"
-					data-zip-code="true"
-					data-description="Example charge"
-					data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-					data-locale="auto">
-				</script>
-			</div>
+	 			<div style="text-align:right">
+					<script
+						src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+						data-key="pk_test_L78ulCkylxUyYs8sshJtdrww"
+						data-amount="{{ \Cart::total() * 100 }}"
+						data-name="dev"
+						data-zip-code="true"
+						data-description="Restaurant Food"
+						data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+						data-locale="auto">
+					</script>
+				</div>
 
 			</div>
 
