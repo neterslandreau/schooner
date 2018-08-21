@@ -12,7 +12,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => 'Schooner Or Later Bar & Grill',
+    'name' => 'Schooner Or Later',
 
     'address' => '5191 S State Road 7, Davie, FL 33314',
 
