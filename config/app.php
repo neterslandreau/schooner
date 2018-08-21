@@ -192,6 +192,7 @@ return [
         SimpleSoftwareIO\SMS\SMSServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Cartalyst\Stripe\Laravel\StripeServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
     ],
 
     /*
@@ -247,6 +248,7 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
         'Stripe' => Cartalyst\Stripe\Laravel\Facades\Stripe::class,
+        'Image' => Intervention\Image\Facades\Image::class,
 
     ],
 

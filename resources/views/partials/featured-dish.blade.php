@@ -4,7 +4,7 @@
 
 	@if (Storage::disk('local')->exists('public/items/' . $item->slug . '.png'))
 
-		<img class="img-rounded" src="/storage/items/{{ $item->slug }}.png" height="100">
+            <img class="img-rounded" src="/img/medium/{{ $item->slug }}.png">
 
     @endif
 
