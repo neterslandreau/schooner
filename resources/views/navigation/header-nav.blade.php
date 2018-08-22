@@ -23,7 +23,7 @@
       <ul class="nav navbar-nav">
 
         <li class="active">
-            <a href="#" title="Home" href="/">
+            <a title="Home" href="/">
                 <span class="glyphicon glyphicon-home col-sm-1"></span>
                 <span class="col-sm-2">Home</span>
             </a>
