@@ -23,28 +23,28 @@
       <ul class="nav navbar-nav">
 
         <li class="active">
-            <a title="Home" href="/">
+            <a href="#" title="Home" href="/">
                 <span class="glyphicon glyphicon-home col-sm-1"></span>
                 <span class="col-sm-2">Home</span>
             </a>
         </li>
 
         <li>
-            <a title="About" data-toggle="modal" data-target="#about">
+            <a href="#" title="About" data-toggle="modal" data-target="#about">
                 <span class="glyphicon glyphicon-info-sign col-sm-1"></span>
                 <span class="col-sm-2">About</span>
             </a>
         </li>
 
         <li>
-            <a title="Contact" data-toggle="modal" data-target="#contact">
+            <a href="#" title="Contact" data-toggle="modal" data-target="#contact">
                 <span class="glyphicon glyphicon-phone col-sm-1"></span>
                 <span class="col-sm-2">Contact</span>
             </a>
         </li>
 
         <li>
-            <a title="Shopping Cart" data-toggle="modal" data-target="#cart">
+            <a href="#" title="Shopping Cart" data-toggle="modal" data-target="#cart">
                 <span class="glyphicon glyphicon-shopping-cart col-sm-1">
                     <span class="badge badge-notify"></span>
                 </span>
