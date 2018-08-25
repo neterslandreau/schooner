@@ -1,5 +1,5 @@
 <aside id="sidebar-offcanvas">
-<h2>Breakfasts</h2>
+<h6><b>Breakfasts</b></h6>
 <div class="list-group">
 @foreach ($breakfastItems as $item)
 
@@ -23,7 +23,7 @@
 @endforeach
 </div>
 
-<h2>Lunches</h2>
+<h6><b>Lunches</b></h6>
 <div class="list-group">
 @foreach ($lunchItems as $item)
 
@@ -48,7 +48,7 @@
 
 </div>
 
-<h2>Smoothies</h2>
+<h6><b>Smoothies</b></h6>
 <div class="list-group">
 
 @foreach ($smoothies as $item)
@@ -75,7 +75,7 @@
 
 </div>
 
-<h2>Beverages</h2>
+<h6><b>Beverages</b></h6>
 <div class="list-group">
 
 @foreach ($drinks as $item)

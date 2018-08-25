@@ -11,6 +11,7 @@
                     <div class="row">
                         <div class="col-md-3">
                             @include('partials.admin-types')
+                            @include('partials.admin-config')
                         </div>
                         <div class="col-md-9">
                             @include('partials.admin-items')

@@ -1,10 +1,10 @@
 <div class="col-xs-8 col-lg-4 col-md-4 text-center">
 
-	<h2>{{ $item->name }}</h2>
+	<h4><b>{{ $item->name }}</b></h4>
 
 	@if (Storage::disk('local')->exists('public/items/' . $item->slug . '.png'))
 
-            <img class="img-rounded" src="/img/medium/{{ $item->slug }}.png">
+            <img class="img-rounded center-block" src="/img/medium/{{ $item->slug }}.png">
 
     @endif
 
