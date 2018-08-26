@@ -19,11 +19,17 @@ class AppServiceProvider extends ServiceProvider
 
 		view()->composer('diner', function($view) {
 			$featuredItems = \App\Item::featuredItems();
-			$breakfastItems = \App\Item::getItems('breakfast');
-			$lunchItems = \App\Item::getItems('lunch');
-			$smoothies = \App\Item::getItems('smoothies');
-			$drinks = \App\Item::getItems('drinks');
-			$view->with(compact('featuredItems', 'smoothies', 'lunchItems', 'breakfastItems', 'drinks'));
+
+			$types = \App\Type::get();
+
+			$menuItems = [];
+			foreach ($types as $t => $type) {
+				$menuItems[$t] = \App\Item::getItems($type->slug);
+				$menuItems[$t]->typeName = $type->name;
+
+			}
+
+			$view->with(compact('featuredItems', 'menuItems'));
 		});
 
 	}
