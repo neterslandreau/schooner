@@ -6595,6 +6595,7 @@ a.thumbnail.active {
   display: block;
   padding: 10px 15px;
   margin-bottom: -1px;
+  margin-right: 20px;
   background-color: #fff;
   border: 1px solid #d3e0e9;
 }
