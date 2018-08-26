@@ -8,7 +8,6 @@
 
         @if (Storage::disk('local')->exists('public/items/' . $item->slug . '.png'))
 
-            <!-- <img class="img-rounded center-block" src="/img/small/{{ $item->slug }}.png"> -->
 
         @endif
 
