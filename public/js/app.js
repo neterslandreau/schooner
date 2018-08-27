@@ -43254,6 +43254,10 @@ $(function () {
       }
     });
   });
+
+  $('#jumbotron-toggle').on('click', function () {
+    $('#jumbotron').toggle();
+  });
 });
 function makeRow(row, slug) {
   var newRow;

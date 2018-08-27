@@ -12,6 +12,8 @@
 
 			</p>
 
+			<button id="jumbotron-toggle" type="button" class="btn btn-primary btn-xs">Toggle Jumbotron</button>
+
 			@include('partials.jumbotron')
 
 			<div class="row">
