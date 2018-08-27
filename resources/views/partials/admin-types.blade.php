@@ -6,6 +6,7 @@
 		<tr>
 			<td>Name</td>
 			<td>Description</td>
+			<td>Order</td>
 			<td>Edit</td>
 			<td>Delete</td>
 		</tr>
@@ -17,6 +18,7 @@
 		<tr>
 			<td>{{ $type->name }}</td>
 			<td>{{ $type->description }}</td>
+			<td>{{ $type->order }}</td>
             <td><a class="glyphicon glyphicon-pencil nav-link" href="/types/{{ $type->slug }}/edit" role="button"><span></span></a></td>
             @if (in_array($type->slug, $requiredTypes))
 	            <td><a class="glyphicon glyphicon-trash nav-link" href="/types/{{ $type->slug }}/delete" role="button" onClick="return confirm('Are you absolutely sure? The site will break if this is deleted!')"><span></span></a></td>
@@ -28,7 +30,7 @@
 	@endforeach
 
 		<tr>
-			<td colspan=4 align=center>
+			<td colspan=5 align=center>
 				<a class="glyphicon glyphicon-plus nav-link" href="/types/create" role="button"><span>Add</span></a>
 			</td>
 		</tr>

@@ -3,7 +3,7 @@
 class Type extends Model
 {
 
-    protected $fillable = ['name', 'description'];
+    protected $fillable = ['name', 'description', 'order'];
 
     protected $table = 'types';
 

@@ -21,7 +21,8 @@ class AppServiceProvider extends ServiceProvider
 			$featuredItems = \App\Item::featuredItems();
 
 			$types = \App\Type::get();
-
+			$types = $types->sortBy('order');
+			
 			$menuItems = [];
 			foreach ($types as $t => $type) {
 				$menuItems[$t] = \App\Item::getItems($type->slug);

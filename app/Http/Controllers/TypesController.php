@@ -38,12 +38,14 @@ class TypesController extends Controller
         $this->validate(request(), [
             'name' => 'required',
             'description' => 'required',
+            'order' => 'required',
 
         ]);
 
         $type = Type::create([
             'name' => request('name'),
             'description' => request('description'),
+            'order' => request('order'),
         ]);
 
         session()->flash('message', 'Your menu type has been saved.');
@@ -77,11 +79,13 @@ class TypesController extends Controller
                  $this->validate(request(), [
                     'name' => 'required',
                     'description' => 'required',
+                    'order' => 'required',
 
                 ]);
                 $type = Type::where('slug', $slug)->first();
                 $type->name = request('name');
                 $type->description = request('description');
+                $type->order = request('order');
                 $type->save();
                 session()->flash('message', 'The menu type was successfully editted.');
                 return redirect()->home();
