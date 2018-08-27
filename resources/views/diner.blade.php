@@ -12,7 +12,7 @@
 
 			</p>
 
-			<button id="jumbotron-toggle" type="button" class="btn btn-primary btn-xs">Toggle Jumbotron</button>
+			<button href="#" id="jumbotron-toggle" type="button" class="btn btn-primary btn-xs">Toggle Jumbotron</button>
 
 			@include('partials.jumbotron')
 
