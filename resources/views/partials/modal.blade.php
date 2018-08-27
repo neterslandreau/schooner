@@ -18,7 +18,15 @@
 
 				@if (Storage::disk('local')->exists('public/items/' . $item->slug . '.png'))
 
-					<img class="img-rounded center-block" src="/img/large/{{ $item->slug }}.png">
+					@if ($agent->isMobile())
+
+						<img class="img-rounded center-block" src="/img/medium/{{ $item->slug }}.png">
+
+					@else
+
+						<img class="img-rounded center-block" src="/img/large/{{ $item->slug }}.png">
+
+					@endif
 
 				@endif
 
