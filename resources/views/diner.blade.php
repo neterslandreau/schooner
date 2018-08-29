@@ -12,14 +12,18 @@
 
 			</p>
 
-			<button href="#" id="jumbotron-toggle" type="button" class="btn btn-primary btn-xs">Toggle Jumbotron</button>
+			@if (!$agent->isMobile())
 
-			@include('partials.jumbotron')
+				@include('partials.jumbotron')
+
+			@endif
 
 			<div class="row">
 
 				@foreach ($featuredItems as $item)
-				@include('partials.featured-dish')
+
+					@include('partials.featured-dish')
+
 				@endforeach
 
 			</div>

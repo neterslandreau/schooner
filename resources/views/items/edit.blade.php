@@ -31,6 +31,7 @@
             <div class="form-group">
                 <label for="description">Description</label>
                 <input type="text" id="description" name="description" class="form-control" value="{{ $item->description }}">
+                <!-- <textarea data-provide="markdown" name="description" class="form-control rounded-0" id="item-description" rows="5">{{ $item->description }}</textarea> -->
             </div>
 
             <div class="form-group">

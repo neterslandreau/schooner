@@ -6,6 +6,10 @@
  */
 
 require('./bootstrap');
+require('./bootstrap-markdown');
+require('./marked.min.js');
+require('./markdown');
+require('./to-markdown');
 require('./ie10-viewport-bug-workaround');
 require('./offcanvas');
 // require('./Gmap');

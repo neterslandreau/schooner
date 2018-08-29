@@ -94,6 +94,10 @@ $(function() {
     	$('#jumbotron').toggle();
     });
 
+    $('#item-description').markdown({
+    	autofocus:false,
+    	savable:false
+    })
 
 });
 function makeRow(row, slug) {

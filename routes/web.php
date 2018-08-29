@@ -22,6 +22,9 @@ Route::get('/about', function () {
 Route::get('/contact', function () {
 	return view('contact');
 });
+Route::get('/mobile', function () {
+	return view('mobile');
+});
 Route::get('cart', 'CartController@index');
 Route::post('cart', 'CartController@store');
 Route::post('cart/update', 'CartController@update');
