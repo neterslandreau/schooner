@@ -27,7 +27,7 @@
 
     @include('navigation.header-nav')
 
-    <div class="container">
+    <div class="container-fluid">
     @if ($flash = session('message'))
 
     <div class="alert alert-success alert-dismissable" role="alert">

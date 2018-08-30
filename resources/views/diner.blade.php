@@ -4,7 +4,7 @@
 <div id="diner">
 	<div class="row row-offcanvas row-offcanvas-right">
 
-		<div class="col-xs-12 col-sm-9">
+		<div class="col-xs-12 col-sm-9 col-md-9">
 
 			<p class="pull-right visible-xs">
 
@@ -30,7 +30,7 @@
 
 		</div>
 
-	<div class="col-xs-8 col-sm-3 sidebar-offcanvas" id="sidebar">
+	<div class="col-xs-8 col-sm-3 col-md-3 sidebar-offcanvas" id="sidebar">
 
 		@include('partials.sidebar')
 
