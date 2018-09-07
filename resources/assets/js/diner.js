@@ -94,10 +94,7 @@ $(function() {
     	$('#jumbotron').toggle();
     });
 
-    $('#item-description').markdown({
-    	autofocus:false,
-    	savable:false
-    })
+    $('#item-description').summernote();
 
 });
 function makeRow(row, slug) {

@@ -16,7 +16,7 @@
 		<tr>
 			<td>{{ $item->type->name }}</td>
 			<td>{{ $item->name }}</td>
-			<td>{{ $item->description }}</td>
+			<td>{!! $item->description !!}</td>
 			<td>
 			
 			@if (Storage::disk('local')->exists('public/items/' . $item->slug . '.png'))

@@ -8,9 +8,7 @@
 
     @endif
 
-    <p>
-		{{ $item->description }}
-	</p>
+		{!! $item->description !!}
 
 	<p>
 		<a class="btn btn-default" role="button" data-toggle="modal" data-target="#{{ $item->slug }}">Order now for just ${{ $item->price }} &raquo;</a>
