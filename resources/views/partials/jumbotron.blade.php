@@ -1,11 +1,34 @@
 <div id="jumbotron" class="jumbotron">
-	<div class="col-md-5">
+
+	@if (!$agent->isMobile())
+
+		<div class="col-md-5">
+
+	@else
+
+		<div class="col-md-3">
+
+	@endif
+
 		<img class="img-rounded block-center" src="/img/schooner.jpg" style="width: 100%;">
-	</div>
-	<div class="col-md-7">
-		@include('partials.info.contact')
 
 	</div>
-	<!-- <img src="/img/davemenu.png" style="width: 100%;"> -->
+
+	@if (!$agent->isMobile())
+
+		<div class="col-md-7">
+
+		@include('partials.info.contact')
+
+	@else
+
+		<div class="col-md-9">
+
+	@endif
+
+
+	</div>
+
 	<div id="map_canvas" style="width: 100%; height: 100px;"></div>
+
 </div>
