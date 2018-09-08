@@ -1,4 +1,4 @@
-<div id="jumbotron" class="jumbotron">
+<div id="jumbotron">
 
 	@if (!$agent->isMobile())
 
@@ -18,7 +18,7 @@
 
 		<div class="col-md-7">
 
-		@include('partials.info.contact')
+		<!-- @include('partials.info.contact') -->
 
 	@else
 
@@ -26,9 +26,8 @@
 
 	@endif
 
+		<div id="map_canvas" style="width: 100%; height: 170px;"></div>
 
 	</div>
-
-	<div id="map_canvas" style="width: 100%; height: 100px;"></div>
 
 </div>
