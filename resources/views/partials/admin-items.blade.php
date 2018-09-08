@@ -1,3 +1,4 @@
+<h3>Menu Items</h3>
 <table class="table table-striped table-bordered table-condensed">
 	<thead>
 		<tr>
@@ -29,7 +30,7 @@
 			<td>${{ $item->price }}</td>
 			<td>{{ ($item->featured) ? 'Yes' : 'No' }}</td>
             <td><a class="glyphicon glyphicon-pencil nav-link" href="/items/{{ $item->slug }}/edit" role="button"><span></span></a></td>
-            <td><a class="glyphicon glyphicon-trash nav-link" href="/items/{{ $item->slug }}/delete" role="button"><span></span></a></td>
+            <td><a class="glyphicon glyphicon-trash nav-link" href="/items/{{ $item->slug }}/delete" role="button" onClick="return confirm('Are you absolutely sure?');"><span></span></a></td>
 		</tr>
 		@endforeach
 

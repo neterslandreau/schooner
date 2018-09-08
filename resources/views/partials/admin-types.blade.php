@@ -1,6 +1,7 @@
 <?php
-	$requiredTypes = ['breakfast', 'lunch', 'drinks', 'smoothies'];
+	$requiredTypes = [];
 ?>
+<h3>Menu Types</h3>
 <table class="table table-striped table-bordered table-condensed">
 	<thead>
 		<tr>
