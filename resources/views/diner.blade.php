@@ -12,13 +12,9 @@
 
 			</p>
 
-<<<<<<< HEAD
 				@include('partials.jumbotron')
 			
 			<h3 class="text-center">Today's Specials</h3>
-=======
-			@include('partials.jumbotron')
->>>>>>> develop
 
 			<div class="row">
 
