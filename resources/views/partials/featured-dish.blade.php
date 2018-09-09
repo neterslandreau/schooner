@@ -1,4 +1,4 @@
-<div class="col-xs-8 col-lg-4 col-md-4 text-center">
+<div class="col-xs-12 col-lg-6 col-md-6 text-center">
 
 	<h4><b>{{ $item->name }}</b></h4>
 
