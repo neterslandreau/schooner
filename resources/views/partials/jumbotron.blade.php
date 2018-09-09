@@ -1,4 +1,4 @@
-<div id="jumbotron" class="jumbotron" style="background-color: inherit; margin: 0px 0px 0px 0px; padding: 0px 0px 0px 0px;">
+<div id="jumbotron" class="jumbotron" style="background-color: inherit; margin: 0; padding: 20px 0px 8px 0px; border: 0px solid #000;">
 
 	@if (!$agent->isMobile())
 
