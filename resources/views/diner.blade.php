@@ -14,6 +14,8 @@
 
 			@include('partials.jumbotron')
 
+			<h3 class="text-center">Today's Specials</h3>
+
 			<div class="row">
 
 				@foreach ($featuredItems as $item)
