@@ -12,11 +12,7 @@
 
 			</p>
 
-			@if (!$agent->isMobile())
-
-				@include('partials.jumbotron')
-
-			@endif
+			@include('partials.jumbotron')
 
 			<div class="row">
 
