@@ -34,7 +34,7 @@
 
             <div class="form-group">
                 <label for="image">Image</label>
-                <input type="file" id="image" name="image" class="form-control">
+                <textarea name="description" class="form-control rounded-0" id="item-description" rows="5"></textarea>
             </div>
 
             <div class="form-group">
