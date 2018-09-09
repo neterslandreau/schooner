@@ -29,7 +29,7 @@
 
             <div class="form-group">
                 <label for="description">Description</label>
-                <textarea name="description" class="form-control rounded-0" id="item-description" rows="5"></textarea>
+                <textarea name="description" class="form-control rounded-0" id="item-description" rows="10"></textarea>
             </div>
 
             <div class="form-group">
