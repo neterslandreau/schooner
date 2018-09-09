@@ -1,4 +1,4 @@
-<div id="jumbotron" class="jumbotron">
+<div id="jumbotron" class="jumbotron" style="background-color: inherit;">
 	<div class="col-md-5">
 		<img class="img-rounded block-center" src="/img/schooner.jpg" style="width: 100%;">
 	</div>
