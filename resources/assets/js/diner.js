@@ -1,7 +1,4 @@
 $(function() {
- //    if (!window.location.pathname.match(/home|items|types/)) {
-		Gmap.populateMap('5191 S State Road 7, Davie, FL 33314', 'Schooner or Later Bar & Grill');
-	// }
     $('[id^="slug_"]').on('click', function() {
     	var slug = this.id.split('_')[1];
     	var quantity = $('#'+slug+'_quantity').find(":selected").text();
@@ -94,7 +91,20 @@ $(function() {
     	$('#jumbotron').toggle();
     });
 
-    $('#item-description').summernote();
+    $('#item-description').summernote({
+			// toolbar: [
+			// 	// [groupName, [list of button]]
+			// 	['style', ['bold', 'italic', 'underline', 'clear']],
+			// 	['font', ['strikethrough', 'superscript', 'subscript']],
+			// 	['fontsize', ['fontsize']],
+			// 	['color', ['color']],
+			// 	['para', ['ul', 'ol', 'paragraph']],
+			// 	['height', ['height']]
+			// 	// ['misc', ['codeview'], ['fullscreen']]
+			// ]
+	});
+	Gmap.populateMap('5191 S State Road 7, Davie, FL 33314', 'Schooner or Later Bar & Grill');
+
 
 });
 function makeRow(row, slug) {

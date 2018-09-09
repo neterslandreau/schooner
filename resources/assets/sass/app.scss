@@ -6,7 +6,10 @@
 
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
-@import "node_modules/summernote/dist/summernote";
+//@import "node_modules/summernote/dist/summernote";
+
+// Summernote
+@import url(https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css);
 
 /*
  * Style tweaks

@@ -29,12 +29,12 @@
 
             <div class="form-group">
                 <label for="description">Description</label>
-                <input type="text" id="description" name="description" class="form-control">
+                <textarea name="description" class="form-control rounded-0" id="item-description" rows="5"></textarea>
             </div>
 
             <div class="form-group">
                 <label for="image">Image</label>
-                <textarea name="description" class="form-control rounded-0" id="item-description" rows="5"></textarea>
+                <input type="file" id="image" name="image" class="form-control">
             </div>
 
             <div class="form-group">
