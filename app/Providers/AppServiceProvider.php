@@ -20,14 +20,12 @@ class AppServiceProvider extends ServiceProvider
 		view()->composer('diner', function($view) {
 			$featuredItems = \App\Item::featuredItems();
 
-			$types = \App\Type::get();
-			$types = $types->sortBy('order');
+			$types = \App\Type::get()->sortBy('order');
 
 			$menuItems = [];
 			foreach ($types as $t => $type) {
-				$menuItems[$t] = \App\Item::getItems($type->slug);
+				$menuItems[$t] = \App\Item::getItems($type->slug)->sortBy('order');
 				$menuItems[$t]->typeName = $type->name;
-				$menuItems[$t]->sortBy('order');
 
 			}
 
