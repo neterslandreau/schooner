@@ -2,6 +2,12 @@
 
 @section('content')
 
+<ul>
+  <li>One</li>
+  <li>Two</li>
+  <li>Three</li>
+</ul>
+
 	{{ $agent->device() }}
 
 <div class="row">

@@ -37,7 +37,7 @@
 		@endforeach
 
 		<tr>
-			<td colspan=8 align=center>
+			<td colspan=9 align=center>
 				<a class="glyphicon glyphicon-plus nav-link" href="/items/create" role="button"><span>Add</span></a>
 			</td>
 		</tr>
