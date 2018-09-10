@@ -26,7 +26,7 @@ class AddOrderToTypes extends Migration
     public function down()
     {
         Schema::table('types', function (Blueprint $table) {
-            if (Schema::hadColumn('order'))
+            if (Schema::hasColumn('order'))
             {
                 $table->dropColumn('order');
             }

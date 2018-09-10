@@ -27,7 +27,7 @@ class AddOrderToItem extends Migration
     public function down()
     {
         Schema::table('items', function (Blueprint $table) {
-            if (Schema::hadColumn('order'))
+            if (Schema::hasColumn('order'))
             {
                 $table->dropColumn('order');
             }
