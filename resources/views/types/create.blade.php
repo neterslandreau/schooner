@@ -25,7 +25,7 @@
 
             <div class="form-group">
                 <label for="description">Order</label>
-                <input type="text" id="order" name="order" class="form-control" value="{{ $type->order }}">
+                <input type="text" id="order" name="order" class="form-control">
             </div>
 
             <div class="form-group">
