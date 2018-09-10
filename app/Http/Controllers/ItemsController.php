@@ -93,6 +93,7 @@ class ItemsController extends Controller
                     'price' => 'required',
                     'featured' => 'required',
                     'type_id' => 'required',
+                    'order' => 'required',
 
                 ]);
 
@@ -102,6 +103,7 @@ class ItemsController extends Controller
                 $item->price = request('price');
                 $item->featured = request('featured');
                 $item->type_id = request('type_id');
+                $item->order = request('order');
                 $item->save();
 
                 if (request()->file('image')) {
