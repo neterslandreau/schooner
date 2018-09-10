@@ -7,6 +7,7 @@
 			<td>Description</td>
 			<td>Image</td>
 			<td>Price</td>
+			<td>Order</td>
 			<td>Featured</td>
 			<td>Edit</td>
 			<td>Delete</td>
@@ -27,7 +28,8 @@
 			@endif
 				
 			</td>
-			<td>${{ $item->price }}</td>
+			<td>{{ $item->price }}</td>
+			<td>{{ $item->order }}</td>
 			<td>{{ ($item->featured) ? 'Yes' : 'No' }}</td>
             <td><a class="glyphicon glyphicon-pencil nav-link" href="/items/{{ $item->slug }}/edit" role="button"><span></span></a></td>
             <td><a class="glyphicon glyphicon-trash nav-link" href="/items/{{ $item->slug }}/delete" role="button" onClick="return confirm('Are you absolutely sure?');"><span></span></a></td>
