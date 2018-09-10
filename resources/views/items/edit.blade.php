@@ -35,6 +35,11 @@
             </div>
 
             <div class="form-group">
+                <label for="description">Order</label>
+                <input type="text" id="order" name="order" class="form-control" value="{{ $item->order }}">
+            </div>
+
+            <div class="form-group">
                 <label for="image">Image</label>
                 @if (Storage::disk('local')->exists('public/items/' . $item->slug . '.png'))
 

@@ -33,6 +33,11 @@
             </div>
 
             <div class="form-group">
+                <label for="description">Order</label>
+                <input type="text" id="order" name="order" class="form-control">
+            </div>
+
+            <div class="form-group">
                 <label for="image">Image</label>
                 <input type="file" id="image" name="image" class="form-control">
             </div>
