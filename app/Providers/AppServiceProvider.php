@@ -12,8 +12,8 @@ class AppServiceProvider extends ServiceProvider
 	public function boot()
 	{
 		view()->composer('home', function($view) {
-			$items = \App\Item::get();
-			$types = \App\Type::get();
+			$items = \App\Item::get()->orderBy('order');
+			$types = \App\Type::get()->orderBy('order');
 			$view->with(compact('items', 'types'));
 		});
 
