@@ -24,6 +24,11 @@
             </div>
 
             <div class="form-group">
+                <label for="description">Order</label>
+                <input type="text" id="order" name="order" class="form-control" value="{{ $type->order }}">
+            </div>
+
+            <div class="form-group">
                 <button type="submit" class="btn btn-primary">Save</button>
             </div>
         </form>
