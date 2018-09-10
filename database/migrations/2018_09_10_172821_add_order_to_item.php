@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddOrderToTypes extends Migration
+class AddOrderToItem extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class AddOrderToTypes extends Migration
      */
     public function up()
     {
-        Schema::table('types', function (Blueprint $table) {
-            $table->integer('order')->after('description');
+        Schema::table('items', function (Blueprint $table) {
+            $table->integer('order')->after('featured');
         });
+
     }
 
     /**
@@ -25,7 +26,7 @@ class AddOrderToTypes extends Migration
      */
     public function down()
     {
-        Schema::table('types', function (Blueprint $table) {
+        Schema::table('items', function (Blueprint $table) {
             if (Schema::hadColumn('order'))
             {
                 $table->dropColumn('order');

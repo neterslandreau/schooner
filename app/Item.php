@@ -6,7 +6,7 @@ class Item extends Model
 
     protected $table = 'items';
 
-    protected $fillable = ['description', 'name', 'slug', 'price', 'featured', 'type_id'];
+    protected $fillable = ['description', 'name', 'slug', 'price', 'featured', 'type_id', 'order'];
 
     public function type()
     {
