@@ -13,8 +13,8 @@
 
 			<div class="modal-body">
 
-			Hosting provided by <a href="http://think-knot.com" target="_blank">The Neters Group</a>
-			  
+				<p class="text-center">&copy; <?php echo date('Y'); ?> Menu powered by <a href="http://think-knot.com" target="_blank">The Neters Group</a></p>
+
 			</div>
 
 			<div class="modal-footer">
