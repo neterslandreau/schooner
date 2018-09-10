@@ -11,7 +11,7 @@
 		{!! $item->description !!}
 
 	<p>
-		<a class="btn btn-default" role="button" data-toggle="modal" data-target="#{{ $item->slug }}">Order now for just ${{ $item->price }} &raquo;</a>
+		<a class="btn btn-default" role="button" data-toggle="modal" data-target="#{{ $item->slug }}">Order now! &raquo;</a>
 	</p>
 
 </div>
