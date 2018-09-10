@@ -22,11 +22,12 @@ class AppServiceProvider extends ServiceProvider
 
 			$types = \App\Type::get();
 			$types = $types->sortBy('order');
-			
+
 			$menuItems = [];
 			foreach ($types as $t => $type) {
 				$menuItems[$t] = \App\Item::getItems($type->slug);
 				$menuItems[$t]->typeName = $type->name;
+				$menuItems[$t]->sortBy('order');
 
 			}
 
