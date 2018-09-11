@@ -8,6 +8,18 @@
   <li>Three</li>
 </ul>
 
+<p><b><u>Coffee Milk and Sugar</u></b></p>
+<ol>
+  <li><b><u>Uno</u></b></li>
+  <li><b><u>Dos</u></b></li>
+  <li><b><u>Tres</u></b></li>
+</ol><p>
+<ul>
+  <li><b><u>One</u></b></li>
+  <li><b><u>Two</u></b></li>
+  <li><b><u>Three</u></b></li>
+</ul>
+
 	{{ $agent->device() }}
 
 <div class="row">
