@@ -58,6 +58,7 @@
 
 				@endif
 
+				@include('partials.cart.options')
 			</div>
 
 			<div class="modal-footer">
