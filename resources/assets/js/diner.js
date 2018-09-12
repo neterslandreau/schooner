@@ -1,97 +1,124 @@
 $(function() {
-    $('[id^="slug_"]').on('click', function() {
-    	var slug = this.id.split('_')[1];
-    	var quantity = $('#'+slug+'_quantity').find(":selected").text();
-    	var notes = $('#'+slug+'_notes').val();
+	$('[id^="slug_"]').on('click', function() {
+		var slug = this.id.split('_')[1];
+		var quantity = $('#'+slug+'_quantity').find(":selected").text();
+		var notes = $('#'+slug+'_notes').val();
+		var extras = $('[id^="'+slug+'_extra_"]');
+		var mextras = [];
 
-    	var url = 'cart';
-    	var data = {
-    		slug: slug,
-    		quantity: quantity,
-    		notes: notes,
-    		_token: Laravel.csrfToken
-    	};
+		extras.each(function() {
+			if (document.getElementById(this.id).checked) {
+				var inarr = $.inArray(this.value, mextras);
+				if (inarr) {
+					mextras.push(this.value);
+				}
+
+			}
+			console.log(mextras);
+		});
+
+		var url = 'cart';
+		var data = {
+			slug: slug,
+			quantity: quantity,
+			notes: notes,
+			extras: mextras,
+			_token: Laravel.csrfToken
+		};
 
 		$.ajaxSetup({
 		   headers: {
-		       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+			   'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
 		   }
 		});
 
-    	$.post(url, data, function (response, status) {
-    		console.log(response);
+		$.post(url, data, function (response, status) {
+			console.log(response);
 			location.reload();
-    		// $('#cartTotal').html('$'+response['cartTotal']);
-    		// if (typeof $('#row_'+response['row'].__raw_id).html() == 'undefined') {
-    		// 	newRow = makeRow(response['row'], slug);
-    		// 	console.log(newRow);
-	    	// 	$('#cartBody').prepend(newRow);
-    		// }
-    	});
+			// $('#cartTotal').html('$'+response['cartTotal']);
+			// if (typeof $('#row_'+response['row'].__raw_id).html() == 'undefined') {
+			// 	newRow = makeRow(response['row'], slug);
+			// 	console.log(newRow);
+			// 	$('#cartBody').prepend(newRow);
+			// }
+		});
 		// $('#cart').modal('show');
 
-    });
+	});
 
-    $('[id^="qty_"]').on('change', function() {
-    	var slug = this.id.split('_')[1];
-    	var quantity = $('#qty_'+slug+' :selected').val();
-    	var notes = $('#notes_'+slug).val();
+	$('[id^="qty_"]').on('change', function() {
+		var slug = this.id.split('_')[1];
+		var quantity = $('#qty_'+slug+' :selected').val();
+		var notes = $('#notes_'+slug).val();
+		var mextras = [];
 
-    	console.log(notes);
+		extras.each(function() {
+			if (document.getElementById(this.id).checked) {
+				var inarr = $.inArray(this.value, mextras);
+				if (inarr) {
+					mextras.push(this.value);
+				}
 
-    	var url = 'cart/update';
-    	var data = {
-    		slug: slug,
-    		quantity: quantity,
-    		notes: notes,
-    		_token: Laravel.csrfToken
-    	};
+			}
+			console.log(mextras);
+		});
+
+		console.log(notes);
+
+		var url = 'cart/update';
+		var data = {
+			slug: slug,
+			quantity: quantity,
+			notes: notes,
+			extras: mextras,
+			_token: Laravel.csrfToken
+		};
 
 		$.ajaxSetup({
 		   headers: {
-		       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+			   'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
 		   }
 		});
 
-    	$.post(url, data, function (response, status) {
-    		console.log(response);
-    		$('#cartTotal').html('$'+response)
-    	});
-    });
+		$.post(url, data, function (response, status) {
+			console.log(response);
+			$('#cartTotal').html('$'+response)
+		});
+	});
 
-    $('[id^="remove_"]').on('click', function() {
-    	var slug = this.id.split('_')[1];
+	$('[id^="remove_"]').on('click', function() {
+		var slug = this.id.split('_')[1];
 
-    	var url = 'cart/remove';
-    	var data = {
-    		slug: slug,
-    		_token: Laravel.csrfToken
-    	};
+		var url = 'cart/remove';
+		var data = {
+			slug: slug,
+			_token: Laravel.csrfToken
+		};
 
 		$.ajaxSetup({
 		   headers: {
-		       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+			   'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
 		   }
 		});
 
-    	$.post(url, data, function (response, status) {
-    		console.log(response);
-    		$('#row_'+slug).html('');
-    		if (response < 1) {
-    			$('#checkoutButton').hide();
-    			$('#cartRow').html('<td colspan="4">Your cart is empty.</td>');
+		$.post(url, data, function (response, status) {
+			console.log(response);
+			$('#row_'+slug).html('');
+			if (response < 1) {
+				$('#checkoutButton').hide();
+				$('#cartRow').html('<td colspan="4">Your cart is empty.</td>');
 
-    		} else {
-	    		$('#cartTotal').html('$'+response);
-    		}
-    	});
-    });
+			} else {
+				$('#cartTotal').html('$'+response);
+			}
+		});
+	});
 
-    $('#jumbotron-toggle').on('click', function() {
-    	$('#jumbotron').toggle();
-    });
+	$('#jumbotron-toggle').on('click', function() {
+		$('#jumbotron').toggle();
+	});
 
-    $('#item-description').summernote({
+	$('#item-description').summernote({
 			// toolbar: [
 			// 	// [groupName, [list of button]]
 			// 	['style', ['bold', 'italic', 'underline', 'clear']],
@@ -104,7 +131,7 @@ $(function() {
 			// ]
 	});
 
-    if (!window.location.pathname.match(/home|items|types/)) {
+	if (!window.location.pathname.match(/home|items|types/)) {
 		Gmap.populateMap('5191 S State Road 7, Davie, FL 33314', 'Schooner or Later Bar & Grill');
 	}
 

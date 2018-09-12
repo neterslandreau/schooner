@@ -13,16 +13,12 @@
 	@if ($item->notes)
 	<td>
 		<label for "notes">Order Details</label>
-		{{ $item->notes }}
-		<!-- <input name="notes" id="notes_{{ $item->__raw_id }}" value="{{ $item->notes }}"> -->
+		<p>Extras: <span>{{ $item->notes[1] }}</span></p>
+		<p>Comments: <span>{{ $item->notes[0] }}</span></p>
 	</td>
 	@endif
-<!-- 	<td>
-		<button id="update_{{ $item->__raw_id }}" class="btn btn-default" title="Update Quantity" type="button" value="update">
-			<span class="glyphicon glyphicon-save"></span>
-		</button>
-	</td>
- -->	<td>
+
+	<td>
 		<button id="remove_{{ $item->__raw_id }}" class="btn btn-default" title="Remove Item" type="button" value="remove">
 			<span class="glyphicon glyphicon-remove"></span>
 		</button>

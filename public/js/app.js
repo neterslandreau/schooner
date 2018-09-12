@@ -64367,12 +64367,25 @@ $(function () {
 		var slug = this.id.split('_')[1];
 		var quantity = $('#' + slug + '_quantity').find(":selected").text();
 		var notes = $('#' + slug + '_notes').val();
+		var extras = $('[id^="' + slug + '_extra_"]');
+		var mextras = [];
+
+		extras.each(function () {
+			if (document.getElementById(this.id).checked) {
+				var inarr = $.inArray(this.value, mextras);
+				if (inarr) {
+					mextras.push(this.value);
+				}
+			}
+			console.log(mextras);
+		});
 
 		var url = 'cart';
 		var data = {
 			slug: slug,
 			quantity: quantity,
 			notes: notes,
+			extras: mextras,
 			_token: Laravel.csrfToken
 		};
 
@@ -64399,6 +64412,17 @@ $(function () {
 		var slug = this.id.split('_')[1];
 		var quantity = $('#qty_' + slug + ' :selected').val();
 		var notes = $('#notes_' + slug).val();
+		var mextras = [];
+
+		extras.each(function () {
+			if (document.getElementById(this.id).checked) {
+				var inarr = $.inArray(this.value, mextras);
+				if (inarr) {
+					mextras.push(this.value);
+				}
+			}
+			console.log(mextras);
+		});
 
 		console.log(notes);
 
@@ -64407,6 +64431,7 @@ $(function () {
 			slug: slug,
 			quantity: quantity,
 			notes: notes,
+			extras: mextras,
 			_token: Laravel.csrfToken
 		};
 
