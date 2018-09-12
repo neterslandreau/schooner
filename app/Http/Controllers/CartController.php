@@ -37,12 +37,13 @@ class CartController extends Controller
 	{
 		if (request()->method() === 'POST') {
 			$item = Item::where(['slug' => request('slug')])->first();
+			$extras = implode(',', request('extras'));
 			if ($row = \Cart::add(
 				$item->slug,
 				$item->name,
 				request('quantity'),
 				$item->price,
-				['notes' => request('notes')]
+				['notes' => [request('notes'), $extras]]
 			)) {
 				// $rtn['row'] = $row;
 				// $rtn['cartTotal'] = \Cart::total();
