@@ -5,6 +5,7 @@
 		'bagel-w-cream-cheese',
 		'2-2-2',
 		'4-x-2',
+		'western',
 	])
 	||
 	in_array($item->type->slug, [
@@ -70,14 +71,14 @@
 
 	@elseif ($item->type->slug === 'smoothies') {{-- Breakfast Omlettes --}}
 
-			<div class="form-group">
+			<div class="form-group"><span style="padding:right: 5px;"><b>Sides:</b></span>
 
 				<label class="radio-inline"><input type="radio" id="{{ $item->slug }}_extra_hashbrowns" name="sides" value="hashbrown">Hash Browns</label>
 				<label class="radio-inline"><input type="radio" id="{{ $item->slug }}_extra_pickles" name="sides" value="grits">Grits</label>
 
 			</div>
 
-			<div class="form-group">
+			<div class="form-group"><span style="padding:right: 5px;"><b>Bread:</b></span>
 
 				<label class="radio-inline"><input type="radio" id="{{ $item->slug }}_extra_toast" name="bread" value="toast">Toast</label>
 				<label class="radio-inline"><input type="radio" id="{{ $item->slug }}_extra_biscuit" name="bread" value="biscuit">Biscuit</label>
@@ -87,7 +88,7 @@
 
 			@if ($item->slug === 'ham-bacon-or-sausage-cheese')
 
-			<div class="form-group">
+			<div class="form-group"><span style="padding:right: 5px;"><b>Bread:</b></span>
 
 				<label class="radio-inline"><input type="radio" id="{{ $item->slug }}_extra_bacon" name="meats" value="bacon">Bacon</label>
 				<label class="radio-inline"><input type="radio" id="{{ $item->slug }}_extra_sausage" name="meats" value="suasage">Sausage Links</label>
@@ -95,9 +96,17 @@
 
 			</div>
 
-			@elseif ($item->slug === 'western-1')
 
 			@endif
+
+			@elseif ($item->slug === 'western')
+
+			<div class="form-group"><span style="padding:right: 5px;"><b>Extras:</b></span>
+
+				<label class="checkbox-inline"><input type="checkbox" id="{{ $item->slug }}_extra_bagel" name="meats" value="bagel">Bagel</label>
+				<label class="checkbox-inline"><input type="checkbox" id="{{ $item->slug }}_extra_cheese" name="meats" value="cheese">Cheese</label>
+
+			</div>
 
 	@endif
 
