@@ -26,10 +26,7 @@
 				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 				@if (\Cart::total())
 				<button id="checkoutButton" type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#checkout">Pay in Store</button>
-
 				<button id="payByCard" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#checkoutcc">Pay by Card</button>
-
-				</script>
 
 				@endif
 

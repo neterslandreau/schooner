@@ -64467,6 +64467,7 @@ $(function () {
 			$('#row_' + slug).html('');
 			if (response < 1) {
 				$('#checkoutButton').hide();
+				$('#payByCard').hide();
 				$('#cartRow').html('<td colspan="4">Your cart is empty.</td>');
 			} else {
 				$('#cartTotal').html('$' + response);

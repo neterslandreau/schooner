@@ -47,18 +47,10 @@
 
 				</div>
 
-				@if(in_array($item->type->slug, ['breakfast', 'lunch']))
+				@include('partials.cart.howcooked')
 
-				<div class="form-group">
-					<label for="notes">How do you want that?</label>
+				@include('partials.cart.choices')
 
-					<input id="{{ $item->slug }}_notes" name="{{ $item->slug }}_notes">
-
-				</div>
-
-				@endif
-
-				@include('partials.cart.extras')
 			</div>
 
 			<div class="modal-footer">

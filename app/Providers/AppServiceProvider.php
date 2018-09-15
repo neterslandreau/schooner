@@ -19,7 +19,6 @@ class AppServiceProvider extends ServiceProvider
 
 		view()->composer('diner', function($view) {
 			$featuredItems = \App\Item::featuredItems();
-
 			$types = \App\Type::get()->sortBy('order');
 
 			$menuItems = [];
@@ -29,7 +28,7 @@ class AppServiceProvider extends ServiceProvider
 
 			}
 
-			$view->with(compact('featuredItems', 'menuItems'));
+			$view->with(compact('featuredItems', 'menuItems', 'types'));
 		});
 
 	}

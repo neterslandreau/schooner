@@ -10,12 +10,10 @@
         @endfor
         </select>
 	</td>
-	@if ($item->notes)
-	<td>
-		<label for "notes">Order Details</label>
-		<p>Extras: <span>{{ $item->notes[1] }}</span></p>
-		<p>Comments: <span>{{ $item->notes[0] }}</span></p>
-	</td>
+
+	@if (is_array($item->notes))
+
+
 	@endif
 
 	<td>

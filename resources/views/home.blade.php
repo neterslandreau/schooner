@@ -10,6 +10,8 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-md-4">
+                            @include('partials.admin-choices')
+                            @include('partials.admin-extras')
                             @include('partials.admin-types')
                             @include('partials.admin-config')
                         </div>
