@@ -47,11 +47,12 @@ class InvoicesController extends Controller
 		$this->validate(request(), [
 			'phone' => 'required',
 			'name' => 'required',
+			'email' => 'required',
 		]);
 
-		if (!request('email')) {
-			$request['email'] = 'none provided';
-		}
+		// if (!request('email')) {
+		// 	$request['email'] = 'none provided';
+		// }
 		$email = request('email');
 		$name = request('name');
 		$phone = request('phone');
@@ -70,6 +71,7 @@ class InvoicesController extends Controller
 
 		Mail::to(env('DINER_EMAIL'))
 			->bcc('diner@think-knot.com')
+			->bcc(request('email'))
 			->send($order);
 		// dd($order);
 		// \SMS::send('my message', null, function($sms) {
