@@ -9,8 +9,8 @@ Phone: {{ $phone }}
 @foreach ($items as $item)
 <div>
 {{ $item->qty }} - {{ $item->name }}<br>
-With: {{ $item->notes[1] }}<br>
-Comments: {{ $item->notes[0] }}
+{{ $item->notes['comments'] }}<br>
+{{ $item->notes['extras'] }}
 </div>
 <br>
 @endforeach

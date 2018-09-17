@@ -4,23 +4,23 @@ $(function() {
 		var quantity = $('#'+slug+'_quantity').find(":selected").text();
 		var notes = $('#'+slug+'_notes').val();
 		var extras = $('[id^="'+slug+'_extra_"]');
+		var price = $('#price_'+slug).html();
 		var mextras = [];
 
 		extras.each(function() {
 			if (document.getElementById(this.id).checked) {
-				var inarr = $.inArray(this.value, mextras);
-				if (inarr) {
+				if ($.inArray(this.value, mextras) === -1) {
 					mextras.push(this.value);
 				}
-
 			}
-			console.log(mextras);
 		});
+		console.log(mextras);
 
 		var url = 'cart';
 		var data = {
 			slug: slug,
 			quantity: quantity,
+			price: price,
 			notes: notes,
 			extras: mextras,
 			_token: Laravel.csrfToken
@@ -35,14 +35,7 @@ $(function() {
 		$.post(url, data, function (response, status) {
 			console.log(response);
 			location.reload();
-			// $('#cartTotal').html('$'+response['cartTotal']);
-			// if (typeof $('#row_'+response['row'].__raw_id).html() == 'undefined') {
-			// 	newRow = makeRow(response['row'], slug);
-			// 	console.log(newRow);
-			// 	$('#cartBody').prepend(newRow);
-			// }
 		});
-		// $('#cart').modal('show');
 
 	});
 
@@ -50,18 +43,20 @@ $(function() {
 		var slug = this.id.split('_')[1];
 		var quantity = $('#qty_'+slug+' :selected').val();
 		var notes = $('#notes_'+slug).val();
+		var price = $('#price_'+slug).html();
+		var extras = $('[id^="'+slug+'_extra_"]');
 		var mextras = [];
 
+		console.dir(extras);
 		extras.each(function() {
 			if (document.getElementById(this.id).checked) {
-				var inarr = $.inArray(this.value, mextras);
-				if (inarr) {
-					mextras.push(this.value);
+				if ($.inArray(this.value, mextras) === -1) {
+					mextras.push($this.value);
 				}
-
 			}
-			console.log(mextras);
 		});
+		console.log('complete: '+mextras);
+
 
 		console.log(notes);
 
@@ -71,6 +66,7 @@ $(function() {
 			quantity: quantity,
 			notes: notes,
 			extras: mextras,
+			price: price,
 			_token: Laravel.csrfToken
 		};
 
@@ -115,9 +111,44 @@ $(function() {
 		});
 	});
 
-	$('#jumbotron-toggle').on('click', function() {
-		$('#jumbotron').toggle();
-	});
+	$('[id*="_bagel"]').change(function() {
+		var xtra = 0.75;
+		if (this.checked) {
+			var slug = this.id.split('_', 1);
+			var initprice = parseFloat($('#price_'+slug).html());
+			var endprice = initprice + xtra;
+			console.log(initprice);
+			console.log(endprice);
+			$('#price_'+slug).html(endprice.toFixed(2));
+
+		} else {
+			var slug = this.id.split('_', 1);
+			var initprice = parseFloat($('#price_'+slug).html());
+			var endprice = initprice - xtra;
+			console.log(initprice);
+			console.log(endprice);
+			$('#price_'+slug).html(endprice.toFixed(2));
+		}
+	})
+
+	$('[id*="_cheese"]').change(function() {
+		var xtra = 0.50;
+		if (this.checked) {
+			var slug = this.id.split('_', 1);
+			var initprice = parseFloat($('#price_'+slug).html());
+			var endprice = initprice + xtra;
+			console.log(initprice);
+			console.log(endprice);
+			$('#price_'+slug).html(endprice.toFixed(2));
+		} else {
+			var slug = this.id.split('_', 1);
+			var initprice = parseFloat($('#price_'+slug).html());
+			var endprice = initprice - xtra;
+			console.log(initprice);
+			console.log(endprice);
+			$('#price_'+slug).html(endprice.toFixed(2));
+	}
+	})
 
 	$('#item-description').summernote({
 			// toolbar: [
@@ -137,35 +168,6 @@ $(function() {
 	}
 
 });
-function makeRow(row, slug) {
-	var newRow;
-	var selected;
-	var url = 'cart';
-
-	newRow = '<tr id="row_'+row.__raw_id+'"><td><label>'+row.name+'</label></td><td><label for "qty">Qty</label><select id="qty_'+row.__raw_id+'">';
-	for (var x = 1; x <= 10; x++) {
-		if (x == row.qty) {
-			selected = 'selected';
-		} else {
-			selected = '';
-		}
-		newRow += '<option value="'+x+'" '+selected+'>'+x+'</option>';
-	}
-	newRow += '</select></td>';
-	newRow += '<td><button id="update_'+row.__raw_id+'" class="btn btn-default" title="Update Quantity" type="button" value="update"><span class="glyphicon glyphicon-save"></span></button></td>';
-	newRow += '<td><button id="remove_'+row.__raw_id+'" class="btn btn-default" title="Remove Item" type="button" value="remove"><span class="glyphicon glyphicon-remove"></span></button></td>';
-	newRow += '</tr>';
-	var data = {
-		slug: slug,
-		quantity: row.qty,
-		_token: Laravel.csrfToken
-	};
-	$.post(url, data, function (response, status) {
-		console.log('post newRow');
-	});
-	return newRow;
-
-}
 /**
  * Gmap application wide namespace
  */

@@ -11,7 +11,7 @@
 	@endforeach
 
 	<tr id="cartRow">
-		<td colspan="2">
+		<td colspan="4">
 		<label>Cart total:</label>
 		</td>
 		<td colspan="1" id="cartTotal">

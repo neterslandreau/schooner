@@ -10,11 +10,19 @@
         @endfor
         </select>
 	</td>
+	<td>
+		@if (!empty($item->notes['extras']))
+		{{ $item->notes['extras'] }}
+		@endif
+	</td>
+	<td>
+		{{ $item->notes['comments'] }}
+	</td>
 
-	@if (is_array($item->notes))
+	
 
+	
 
-	@endif
 
 	<td>
 		<button id="remove_{{ $item->__raw_id }}" class="btn btn-default" title="Remove Item" type="button" value="remove">

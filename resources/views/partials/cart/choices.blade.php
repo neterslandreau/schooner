@@ -96,17 +96,18 @@
 
 			</div>
 
-
 			@endif
 
-			@elseif ($item->slug === 'western')
+	@endif
 
-			<div class="form-group"><span style="padding:right: 5px;"><b>Extras:</b></span>
+	@if ($item->type->slug === 'sandwiches')
 
-				<label class="checkbox-inline"><input type="checkbox" id="{{ $item->slug }}_extra_bagel" name="meats" value="bagel">Bagel</label>
-				<label class="checkbox-inline"><input type="checkbox" id="{{ $item->slug }}_extra_cheese" name="meats" value="cheese">Cheese</label>
+	<div class="form-group"><span style="padding:right: 5px;"><b>Extras:</b></span>
 
-			</div>
+		<label class="checkbox-inline"><input type="checkbox" id="{{ $item->slug }}_extra_bagel" name="meats" value="bagel">Bagel</label>
+		<label class="checkbox-inline"><input type="checkbox" id="{{ $item->slug }}_extra_cheese" name="meats" value="cheese">Cheese</label>
+
+	</div>
 
 	@endif
 

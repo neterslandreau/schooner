@@ -65,6 +65,11 @@
 				</div>
 
 				<div class="form-group">
+					<label for="email">Email</label>
+					<input id="email" name="email" class="form-control required">
+				</div>
+
+				<div class="form-group">
 					<label for="phone">Phone</label>
 					<div class="tel">
 					<input id="phone" name="phone" class="form-control required">
