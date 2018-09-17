@@ -48,7 +48,7 @@ class CartController extends Controller
 				$item->slug,
 				$item->name,
 				request('quantity'),
-				$item->price,
+				request('price'),
 				['notes' => ['comments' => request('notes'), 'extras' => $extras]]
 			)) {
 				// $rtn['row'] = $row;
