@@ -7,6 +7,7 @@
 		'4-x-2',
 		'western',
 		'half-order-with-meat',
+		'steak-or-chicken',
 	])
 	||
 	in_array($item->type->slug, [
@@ -231,6 +232,17 @@
 			<label class="checkbox-inline"><input type="checkbox" id="{{ $item->slug }}_extra_redsmashedpotatoes_loaded" name="meats" value="bacon">Red Smahed Potatoes Loaded</label>
 			<label class="checkbox-inline"><input type="checkbox" id="{{ $item->slug }}_extra_salad" name="meats" value="side-salad">Side Salad</label>
 			<label class="checkbox-inline"><input type="checkbox" id="{{ $item->slug }}_extra_soup" name="meats" value="cheese">Soup</label>
+
+		</div>
+
+	@endif
+
+	@if ($item->slug === 'steak-or-chicken')
+
+		<div class="form-group"><span style="padding:right: 5px;"><b>Choice:</b></span>
+
+			<label class="radio-inline"><input type="radio" id="{{ $item->slug }}_extra_steak" name="sides" value="steak">Steak</label>
+			<label class="radio-inline"><input type="radio" id="{{ $item->slug }}_extra_chicken" name="sides" value="chicken">Chicken</label>
 
 		</div>
 
