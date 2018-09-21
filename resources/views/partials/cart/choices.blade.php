@@ -6,12 +6,14 @@
 		'2-2-2',
 		'4-x-2',
 		'western',
+		'half-order-with-meat',
 	])
 	||
 	in_array($item->type->slug, [
 		'breakfast',
 		'smoothies',
 		'chicken-wings',
+		'lunch-sandwiches',
 	])
 	)
 
@@ -24,7 +26,7 @@
 
 		@if ($item->slug == 'w-bacon-sausage-links-or-ham')
 
-			<div class="form-group">
+			<div class="form-group"><span style="padding:right: 5px;"><b>Meat:</b></span>
 
 				<label class="radio-inline"><input type="radio" id="{{ $item->slug }}_extra_bacon" name="meats" value="bacon">Bacon</label>
 				<label class="radio-inline"><input type="radio" id="{{ $item->slug }}_extra_sausage" name="meats" value="suasage">Sausage Links</label>
@@ -34,7 +36,7 @@
 
 		@elseif ($item->slug === '2-2-2')
 
-			<div class="form-group">
+			<div class="form-group"><span style="padding:right: 5px;"><b>Meat:</b></span>
 
 				<label class="radio-inline"><input type="radio" id="{{ $item->slug }}_extra_bacon" name="meats" value="bacon">Bacon</label>
 				<label class="radio-inline"><input type="radio" id="{{ $item->slug }}_extra_sausage" name="meats" value="suasage">Sausage Links</label>
@@ -43,15 +45,16 @@
 
 		@endif
 
-			<div class="form-group">
+			<div class="form-group"><span style="padding:right: 5px;"><b>Side:</b></span>
 
 				<label class="radio-inline"><input type="radio" id="{{ $item->slug }}_extra_hashbrowns" name="sides" value="hashbrown">Hash Browns</label>
-				<label class="radio-inline"><input type="radio" id="{{ $item->slug }}_extra_tomatoes" name="sides" value="homefries">Home Fries</label>
-				<label class="radio-inline"><input type="radio" id="{{ $item->slug }}_extra_pickles" name="sides" value="grits">Grits</label>
+				<label class="radio-inline"><input type="radio" id="{{ $item->slug }}_extra_homefries" name="sides" value="homefries">Home Fries</label>
+				<label class="radio-inline"><input type="radio" id="{{ $item->slug }}_extra_grits" name="sides" value="grits">Grits</label>
+				<label class="radio-inline"><input type="radio" id="{{ $item->slug }}_extra_tomatoes" name="sides" value="tomatoes">Sliced Tomatoes</label>
 
 			</div>
 
-			<div class="form-group">
+			<div class="form-group"><span style="padding:right: 5px;"><b>Bread:</b></span>
 
 				<label class="radio-inline"><input type="radio" id="{{ $item->slug }}_extra_toast" name="bread" value="toast">Toast</label>
 				<label class="radio-inline"><input type="radio" id="{{ $item->slug }}_extra_biscuit" name="bread" value="biscuit">Biscuit</label>
@@ -71,7 +74,7 @@
 
 	@elseif ($item->type->slug === 'smoothies') {{-- Breakfast Omlettes --}}
 
-			<div class="form-group"><span style="padding:right: 5px;"><b>Sides:</b></span>
+			<div class="form-group"><span style="padding:right: 5px;"><b>Side:</b></span>
 
 				<label class="radio-inline"><input type="radio" id="{{ $item->slug }}_extra_hashbrowns" name="sides" value="hashbrown">Hash Browns</label>
 				<label class="radio-inline"><input type="radio" id="{{ $item->slug }}_extra_pickles" name="sides" value="grits">Grits</label>
@@ -88,7 +91,7 @@
 
 			@if ($item->slug === 'ham-bacon-or-sausage-cheese')
 
-			<div class="form-group"><span style="padding:right: 5px;"><b>Bread:</b></span>
+			<div class="form-group"><span style="padding:right: 5px;"><b>Meat:</b></span>
 
 				<label class="radio-inline"><input type="radio" id="{{ $item->slug }}_extra_bacon" name="meats" value="bacon">Bacon</label>
 				<label class="radio-inline"><input type="radio" id="{{ $item->slug }}_extra_sausage" name="meats" value="suasage">Sausage Links</label>
@@ -154,3 +157,81 @@
 
 	@endif
 
+	@if ($item->slug === 'half-order-with-meat' || $item->slug === 'half-order-with-eggs-and-meat' || $item->slug === 'meat')
+
+		<div class="form-group"><span style="padding:right: 5px;"><b>Meat:</b></span>
+
+			<label class="radio-inline"><input type="radio" id="{{ $item->slug }}_extra_bacon" name="meats" value="bacon">Bacon</label>
+			<label class="radio-inline"><input type="radio" id="{{ $item->slug }}_extra_sausage" name="meats" value="suasage">Sausage Links</label>
+			<label class="radio-inline"><input type="radio" id="{{ $item->slug }}_extra_ham" name="meats" value="ham">Ham</label>
+
+		</div>
+
+	@endif
+
+	@if ($item->slug === 'breakfast-egg-platter')
+
+		<div class="form-group"><span style="padding:right: 5px;"><b>Meat:</b></span>
+
+			<label class="radio-inline"><input type="radio" id="{{ $item->slug }}_extra_bacon" name="meats" value="bacon">Bacon</label>
+			<label class="radio-inline"><input type="radio" id="{{ $item->slug }}_extra_sausage" name="meats" value="suasage">Sausage Links</label>
+
+		</div>
+
+	@endif
+
+	@if ($item->type->slug === 'lunch-sandwiches')
+
+		@if ($item->slug === 'grilled-cheese-1')
+
+			<div class="form-group"><span style="padding:right: 5px;"><b>Extras:</b></span>
+
+				<label class="checkbox-inline"><input type="checkbox" id="{{ $item->slug }}_extra_bacon" name="meats" value="bacon">Bacon</label>
+				<label class="checkbox-inline"><input type="checkbox" id="{{ $item->slug }}_extra_tomato" name="meats" value="tomato">Tomato</label>
+
+			</div>
+
+		@elseif ($item->slug === 'chicken-sandwich')
+
+			<div class="form-group"><span style="padding:right: 5px;"><b>Extras:</b></span>
+
+				<label class="checkbox-inline"><input type="checkbox" id="{{ $item->slug }}_extra_bacon" name="meats" value="bacon">Bacon</label>
+				<label class="checkbox-inline"><input type="checkbox" id="{{ $item->slug }}_extra_cheese" name="meats" value="cheese">Cheese</label>
+
+			</div>
+
+		@endif
+
+		<div class="form-group"><span style="padding:right: 5px;"><b>Side:</b></span>
+
+			<label class="radio-inline"><input type="radio" id="{{ $item->slug }}_extra_frenchfries" name="sides" value="french-fries">French Fries</label>
+			<label class="radio-inline"><input type="radio" id="{{ $item->slug }}_extra_onionrings" name="sides" value="onion-rings">Onion Rings</label>
+			<label class="radio-inline"><input type="radio" id="{{ $item->slug }}_extra_coleslaw" name="sides" value="cole-slaw">Cole Slaw</label>
+			<label class="radio-inline"><input type="radio" id="{{ $item->slug }}_extra_beansalad" name="sides" value="bean-salad">Bean Salad</label>
+
+		</div>
+
+	@endif
+
+	@if ($item->type->slug === 'dinner-entrees')
+
+		<div class="form-group"><span style="padding:right: 5px;"><b>Side:</b></span>
+
+			<label class="radio-inline"><input type="radio" id="{{ $item->slug }}_extra_frenchfries" name="sides" value="french-fries">French Fries</label>
+			<label class="radio-inline"><input type="radio" id="{{ $item->slug }}_extra_onionrings" name="sides" value="onion-rings">Onion Rings</label>
+			<label class="radio-inline"><input type="radio" id="{{ $item->slug }}_extra_coleslaw" name="sides" value="cole-slaw">Cole Slaw</label>
+			<label class="radio-inline"><input type="radio" id="{{ $item->slug }}_extra_beansalad" name="sides" value="bean-salad">Bean Salad</label>
+			<label class="radio-inline"><input type="radio" id="{{ $item->slug }}_extra_greenbeans" name="sides" value="green-beans">Green Beans</label>
+			<label class="radio-inline"><input type="radio" id="{{ $item->slug }}_extra_redsmashedpotatoes" name="sides" value="red-smashed-potatoes">Red Smashed Potatoes</label>
+
+		</div>
+
+		<div class="form-group"><span style="padding:right: 5px;"><b>Extras:</b></span>
+
+			<label class="checkbox-inline"><input type="checkbox" id="{{ $item->slug }}_extra_redsmashedpotatoes_loaded" name="meats" value="bacon">Red Smahed Potatoes Loaded</label>
+			<label class="checkbox-inline"><input type="checkbox" id="{{ $item->slug }}_extra_salad" name="meats" value="side-salad">Side Salad</label>
+			<label class="checkbox-inline"><input type="checkbox" id="{{ $item->slug }}_extra_soup" name="meats" value="cheese">Soup</label>
+
+		</div>
+
+	@endif

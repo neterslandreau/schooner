@@ -3,7 +3,11 @@
 	$item->slug, [
 		'daily-special-7-days-a-week-until-2-00-pm',
 		'2-2-2',
-		'4-x-2'
+		'4-x-2',
+		'half-order-with-eggs-and-meat',
+		'half-order-with-eggs',
+		'egg',
+		'breakfast-egg-platter',
 	])
 	||
 	in_array(

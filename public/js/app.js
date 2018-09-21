@@ -64510,6 +64510,101 @@ $(function () {
 		}
 	});
 
+	$('[id*="_tomato"]').change(function () {
+		var xtra = 0.75;
+		if (this.checked) {
+			var slug = this.id.split('_', 1);
+			var initprice = parseFloat($('#price_' + slug).html());
+			var endprice = initprice + xtra;
+			console.log(initprice);
+			console.log(endprice);
+			$('#price_' + slug).html(endprice.toFixed(2));
+		} else {
+			var slug = this.id.split('_', 1);
+			var initprice = parseFloat($('#price_' + slug).html());
+			var endprice = initprice - xtra;
+			console.log(initprice);
+			console.log(endprice);
+			$('#price_' + slug).html(endprice.toFixed(2));
+		}
+	});
+
+	$('[id*="_bacon"]').change(function () {
+		var xtra = 1.25;
+		if (this.checked) {
+			var slug = this.id.split('_', 1);
+			var initprice = parseFloat($('#price_' + slug).html());
+			var endprice = initprice + xtra;
+			console.log(initprice);
+			console.log(endprice);
+			$('#price_' + slug).html(endprice.toFixed(2));
+		} else {
+			var slug = this.id.split('_', 1);
+			var initprice = parseFloat($('#price_' + slug).html());
+			var endprice = initprice - xtra;
+			console.log(initprice);
+			console.log(endprice);
+			$('#price_' + slug).html(endprice.toFixed(2));
+		}
+	});
+
+	$('[id*="_loaded"]').change(function () {
+		var xtra = 0.75;
+		if (this.checked) {
+			var slug = this.id.split('_', 1);
+			var initprice = parseFloat($('#price_' + slug).html());
+			var endprice = initprice + xtra;
+			console.log(initprice);
+			console.log(endprice);
+			$('#price_' + slug).html(endprice.toFixed(2));
+		} else {
+			var slug = this.id.split('_', 1);
+			var initprice = parseFloat($('#price_' + slug).html());
+			var endprice = initprice - xtra;
+			console.log(initprice);
+			console.log(endprice);
+			$('#price_' + slug).html(endprice.toFixed(2));
+		}
+	});
+
+	$('[id*="_salad"]').change(function () {
+		var xtra = 2.49;
+		if (this.checked) {
+			var slug = this.id.split('_', 1);
+			var initprice = parseFloat($('#price_' + slug).html());
+			var endprice = initprice + xtra;
+			console.log(initprice);
+			console.log(endprice);
+			$('#price_' + slug).html(endprice.toFixed(2));
+		} else {
+			var slug = this.id.split('_', 1);
+			var initprice = parseFloat($('#price_' + slug).html());
+			var endprice = initprice - xtra;
+			console.log(initprice);
+			console.log(endprice);
+			$('#price_' + slug).html(endprice.toFixed(2));
+		}
+	});
+
+	$('[id*="_soup"]').change(function () {
+		var xtra = 2.99;
+		if (this.checked) {
+			var slug = this.id.split('_', 1);
+			var initprice = parseFloat($('#price_' + slug).html());
+			var endprice = initprice + xtra;
+			console.log(initprice);
+			console.log(endprice);
+			$('#price_' + slug).html(endprice.toFixed(2));
+		} else {
+			var slug = this.id.split('_', 1);
+			var initprice = parseFloat($('#price_' + slug).html());
+			var endprice = initprice - xtra;
+			console.log(initprice);
+			console.log(endprice);
+			$('#price_' + slug).html(endprice.toFixed(2));
+		}
+	});
+
 	$('#item-description').summernote({
 		// toolbar: [
 		// 	// [groupName, [list of button]]
