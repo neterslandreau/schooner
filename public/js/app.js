@@ -64605,6 +64605,11 @@ $(function () {
 		}
 	});
 
+	$('#toggle-panels').on('click', function () {
+		$('#site-configuration').toggle();
+		$('#site-projects').toggle();
+	});
+
 	$('#item-description').summernote({
 		// toolbar: [
 		// 	// [groupName, [list of button]]
