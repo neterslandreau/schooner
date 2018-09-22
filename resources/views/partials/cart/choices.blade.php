@@ -247,3 +247,19 @@
 		</div>
 
 	@endif
+
+	@if ($item->slug === 'sampler')
+
+		<div class="form-group"><span style="padding:right: 5px;"><b>Select 4:</b></span>
+
+			<form id="sampler" name="sampler">
+				<label class="checkbox-inline"><input type="checkbox" id="{{ $item->slug }}_extra_friedmozzarella_sampler" name="meats" value="fried-mozzarella">Fried Mozzarella</label>
+				<label class="checkbox-inline"><input type="checkbox" id="{{ $item->slug }}_extra_chipssalsa_sampler" name="meats" value="chips-salsa">Chips & Salsa</label>
+				<label class="checkbox-inline"><input type="checkbox" id="{{ $item->slug }}_extra_calamari_sampler" name="meats" value="calamari">Calamari</label>
+				<label class="checkbox-inline"><input type="checkbox" id="{{ $item->slug }}_extra_conchfritters_sampler" name="meats" value="conch-fritters">Conch Fritters</label>
+				<label class="checkbox-inline"><input type="checkbox" id="{{ $item->slug }}_extra_potatoskins_sampler" name="meats" value="potato-skins">Potato Skins</label>
+			</form>
+
+		</div>
+
+	@endif
