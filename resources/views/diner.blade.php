@@ -18,11 +18,15 @@
 
 			<div class="row">
 
-				@foreach ($featuredItems as $item)
+				<div class="col-xs-3"></div>
 
-					@include('partials.featured-dish')
+				<div class="col-xs-6">
 
-				@endforeach
+					@include('partials.specials-carousel')
+
+				</div>
+
+				<div class="col-xs-3"></div>
 
 			</div>
 
