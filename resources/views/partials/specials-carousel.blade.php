@@ -1,25 +1,44 @@
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
 	<!-- Indicators -->
 	<ol class="carousel-indicators">
-		<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-		<li data-target="#myCarousel" data-slide-to="1"></li>
+
+		@for ($x = 0; $x < count($featuredItems); $x++)
+
+			<li data-target="#myCarousel" data-slide-to="{{ $x }}" @if (!$x) class="active" @endif></li>
+
+		@endfor
+
 	</ol>
 
 	<!-- Wrapper for slides -->
 	<div class="carousel-inner">
 
-		<div class="item active">
-			<img src="https://schooner.think-knot.com/img/large/sampler.png">
+		@foreach ($featuredItems as $i => $item)
+
+		<div class="item @if(!$i) active @endif">
+
+		@if (Storage::disk('local')->exists('public/items/' . $item->slug . '.png'))
+
+			<img class="img-rounded center-block" src="/img/large/{{ $item->slug }}.png">
+
+	    @else
+
+	    	<img class="img-rounded center-block" src="/img/empty.png" style="width: 25%;">
+
+	    @endif
+
+
 			<div class="carousel-caption">
-				<h2>Caption 1</h2>
+				<h2>{!! $item->description !!}</h2>
+				<p>
+					<a class="btn btn-default" role="button" data-toggle="modal" data-target="#{{ $item->slug }}">Order now! &raquo;</a>
+				</p>
 			</div>
+
+
 		</div>
-		<div class="item">
-			<img src="https://schooner.think-knot.com/img/large/daily-special-7-days-a-week-until-2-00-pm.png">
-			<div class="carousel-caption">
-				<h2>Caption 2</h2>
-			</div>
-		</div>
+
+		@endforeach
 
 	</div>
 
@@ -31,3 +50,4 @@
 		<span class="icon-next"></span>
 	</a>
 </div>
+@include('partials.modal')
