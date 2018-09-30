@@ -28,7 +28,7 @@
 	    @endif
 
 
-			<div class="carousel-caption">
+			<div class="carousel-caption" style="color: #e4e889;">
 
 				<h4><b>{{ $item->name }}</b></h4>
 
