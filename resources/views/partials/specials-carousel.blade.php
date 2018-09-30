@@ -29,10 +29,13 @@
 
 
 			<div class="carousel-caption">
-				<h2>{!! $item->description !!}</h2>
+
+				<h4><b>{{ $item->name }}</b></h4>
+				<p>{!! $item->description !!}</p>
 				<p>
 					<a class="btn btn-default" role="button" data-toggle="modal" data-target="#{{ $item->slug }}">Order now! &raquo;</a>
 				</p>
+				
 			</div>
 
 
