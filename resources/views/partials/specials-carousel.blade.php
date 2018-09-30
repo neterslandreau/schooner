@@ -23,7 +23,7 @@
 
 	    @else
 
-	    	<img class="img-rounded center-block" src="/img/empty.png" style="width: 25%;">
+	    	<img class="img-rounded center-block" src="/img/empty.png" style="width: 100%; height: 360px;">
 
 	    @endif
 
@@ -31,11 +31,13 @@
 			<div class="carousel-caption">
 
 				<h4><b>{{ $item->name }}</b></h4>
-				<p>{!! $item->description !!}</p>
+
+				{!! $item->description !!}
+
 				<p>
 					<a class="btn btn-default" role="button" data-toggle="modal" data-target="#{{ $item->slug }}">Order now! &raquo;</a>
 				</p>
-				
+
 			</div>
 
 
