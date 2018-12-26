@@ -30,7 +30,7 @@
 
 	<div class="col-xs-8 col-sm-3 col-md-3 sidebar-offcanvas" id="sidebar">
 
-		@include('partials.sidebar')
+		@include('partials.sidebar-new')
 
 	</div>
 
