@@ -17,7 +17,22 @@ class AppServiceProvider extends ServiceProvider
 			$view->with(compact('items', 'types'));
 		});
 
-		view()->composer('diner', function($view) {
+		// view()->composer('diner', function($view) {
+		// 	$featuredItems = \App\Item::featuredItems();
+		// 	$types = \App\Type::get()->sortBy('order');
+
+		// 	$menuItems = [];
+		// 	foreach ($types as $t => $type) {
+		// 		$menuItems[$t] = \App\Item::getItems($type->slug)->sortBy('order');
+		// 		$menuItems[$t]->typeName = $type->name;
+
+		// 	}
+
+		// 	$view->with(compact('featuredItems', 'menuItems', 'types'));
+		// });
+		view()->composer(['ss2', 'diner', 'sliding-sidebar'], function($view) {
+			$image = \Image::canvas(800, 600, '#ff0000');
+
 			$featuredItems = \App\Item::featuredItems();
 			$types = \App\Type::get()->sortBy('order');
 
@@ -25,10 +40,11 @@ class AppServiceProvider extends ServiceProvider
 			foreach ($types as $t => $type) {
 				$menuItems[$t] = \App\Item::getItems($type->slug)->sortBy('order');
 				$menuItems[$t]->typeName = $type->name;
+				$menuItems[$t]->typeSlug = $type->slug;
 
 			}
 
-			$view->with(compact('featuredItems', 'menuItems', 'types'));
+			$view->with(compact('image', 'featuredItems', 'menuItems', 'types'));
 		});
 
 	}
