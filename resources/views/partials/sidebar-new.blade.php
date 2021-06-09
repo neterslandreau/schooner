@@ -2,7 +2,7 @@
 
 @php
 
-	$x = 0;
+	$x = 1;
 
 @endphp
 
@@ -22,7 +22,7 @@
 
 		<div id="{{ $menuItems[$mi]->typeSlug }}" class="item collapse" aria-labelledby="heading{{ $x }}" data-parent="#menuItems">
 
-			@include('partials.sidebar-items')
+		@include('partials.sidebar-items')
 
 		</div>
 
