@@ -39,6 +39,8 @@ return [
             'prefix' => '',
         ],
 
+	    
+	    
         'mysql' => [
             'driver' => 'mysql',
             'host' => env('DB_HOST', '127.0.0.1'),
@@ -58,7 +60,6 @@ return [
 	            'NO_ZERO_DATE',
 	            'ERROR_FOR_DIVISION_BY_ZERO',
 	            'NO_ENGINE_SUBSTITUTION',
-	            'NO_AUTO_CREATE_USER',
             ],
         ],
 
