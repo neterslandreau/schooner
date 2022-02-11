@@ -16,7 +16,7 @@
     "vue": "^2.1.10"
   },
   "dependencies": {
-    "ajv": "^6.5.3",
+    "ajv": "^6.12.3",
     "bootstrap-markdown": "^2.10.0",
     "bootstrap-overlay": "^0.1.0",
     "codemirror": "^5.40.0",
